@@ -524,10 +524,14 @@ main, .site-footer { position: relative; z-index: 1; }
 .offer-slots { display: flex; align-items: center; gap: 13px; color: var(--muted-foreground); font-size: 10px; margin-top: 12px; }
 .offer-bar { width: 110px; height: 3px; border-radius: 2px; background: var(--border); overflow: hidden; }
 .offer-bar i { display: block; height: 100%; background: var(--gold); box-shadow: 0 0 8px color-mix(in srgb, var(--gold) 60%, transparent); }
-.offer-price { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-top: 22px; }
-.offer-price s { color: var(--muted-foreground); font-size: 19px; font-family: var(--font-mono); }
-.offer-price strong { color: var(--gold); font-family: var(--font-mono); font-size: 34px; font-weight: 600; }
-.offer-price span { color: var(--muted-foreground); font-size: 13px; }
+.offer-price-rows { margin-top: 24px; display: grid; gap: 12px; }
+.offer-price { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.offer-price-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: .05em; color: var(--muted-foreground); min-width: 112px; }
+.offer-price s { color: var(--muted-foreground); font-size: 17px; font-family: var(--font-mono); }
+.offer-price strong { color: var(--gold); font-family: var(--font-mono); font-size: 28px; font-weight: 600; }
+.offer-price span:not(.offer-price-label) { color: var(--muted-foreground); font-size: 13px; }
+.offer-pro-note { font-size: 12px; color: var(--muted-foreground); margin-top: 16px; line-height: 1.7; }
+.calc-honest { color: var(--muted-foreground); }
 .offer-checklist { list-style: none; margin: 30px 0 36px; padding: 0; display: grid; grid-template-columns: 1fr; gap: 14px; flex: 1; }
 .offer-checklist li { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; line-height: 1.6; }
 .offer-checklist svg { color: var(--gold); flex-shrink: 0; margin-top: 3px; }
