@@ -2,7 +2,8 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { Header, Footer } from "@/components/Layout";
 import { Pilot, Faq, Zaver } from "@/components/Shared";
 import { ArrowUpRight, Phone, ArrowRight } from "lucide-react";
-import { VoiceSphere } from "@/components/VoiceSphere";
+import { Photo } from "@/components/Photo";
+import { industryPhotos } from "@/data/photos";
 import { LiveChat } from "@/components/LiveChat";
 import { Reveal } from "@/components/Effects";
 import { Button } from "@/components/ui/button";
@@ -15,6 +16,7 @@ export const Route = createFileRoute("/$obor")({
     return o;
   },
   head: ({ loaderData: o }) => ({
+    links: o && industryPhotos[o.slug] ? [{ rel: 'preload', as: 'image', href: industryPhotos[o.slug].src, imageSrcSet: industryPhotos[o.slug].srcSet, imageSizes: '100vw' }] : [],
     meta: o
       ? [
           { title: o.title }, { name: "description", content: o.description },
@@ -29,10 +31,10 @@ export const Route = createFileRoute("/$obor")({
 function OborPage() {
   const o = Route.useLoaderData();
   return <><Header demo={o.demo}/><main>
-    <section className="section-dark industry-hero"><div className="page-width industry-hero-layout">
+    <section className="section-dark industry-hero photo-industry-hero">{industryPhotos[o.slug] && <Photo photo={industryPhotos[o.slug]} hero className="hero-photo industry-cover"/>}<div className="photo-shade" aria-hidden="true"/><div className="page-width industry-hero-layout">
       <div className="industry-hero-copy"><p className="industry-eyebrow">{o.nazev} · {o.podnazev}</p><h1>{o.nadpis}</h1><p className="hero-description">{o.podnadpis}</p>
         {o.demo ? <><div className="demo-console glass-panel"><span className="system-status"><span className="status-dot"/>linka aktivní</span><a href={`tel:${o.demo.tel}`} className="demo-number">{o.demo.cislo}</a><div className="hero-actions"><Button asChild><a href={`tel:${o.demo.tel}`}><Phone size={17}/>Zavolat demo</a></Button><Button asChild variant="secondary"><a href={mailUkazka(o.nazev)}>Domluvit ukázku<ArrowUpRight size={17}/></a></Button></div></div><p className="demo-disclaimer">Ozve se AI recepční smyšleného podniku {o.demo.firma}.</p></> : <div className="hero-actions"><Button asChild><a href={mailUkazka(o.nazev)}>Domluvit ukázku pro váš obor<ArrowUpRight size={17}/></a></Button></div>}
-      </div><div className="industry-voice"><VoiceSphere small/><span className="system-status"><span className="status-dot"/>živě · 24/7</span></div>
+      </div>
     </div></section>
     <section className="section-dark section-space" aria-labelledby="hovory"><Reveal className="page-width"><div className="section-heading"><h2 id="hovory">Typické hovory<span className="text-primary">.</span></h2><span className="section-marker" aria-hidden="true">↘</span></div><ul className="typical-calls">{o.hovory.map(h => <li key={h.dotaz}><p>{h.dotaz}</p><ArrowRight size={18} aria-hidden="true"/><p>{h.akce}</p></li>)}</ul></Reveal></section>
     <section className="section-dark section-space" aria-labelledby="prepis"><div className="page-width transcript-layout"><Reveal><h2 id="prepis">Jak to zní<span className="text-primary">.</span></h2><div className="transcript-wave" aria-hidden="true">{Array.from({length: 25}, (_, i) => <i key={i}/>)}</div></Reveal><div className="glass-panel transcript-panel"><LiveChat key={o.slug} lines={o.prepis}/></div></div></section>
