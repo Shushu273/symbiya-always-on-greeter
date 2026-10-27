@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { usePrefersReducedMotion } from './Effects';
 import { useHydrated } from '@tanstack/react-router';
 import type { Obor } from '@/data/obory';
 export function LiveChat({ lines }: { lines: Obor['prepis'] }) {
   const ref = useRef<HTMLOListElement>(null);
-  const preference = useReducedMotion();
+  const preference = usePrefersReducedMotion();
   const hydrated = useHydrated();
   const reduced = hydrated && preference;
   const [started, setStarted] = useState(false);

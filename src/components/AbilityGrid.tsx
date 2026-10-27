@@ -1,5 +1,6 @@
-import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import { ArrowLeftRight, CalendarCheck, ClipboardList, Clock, Fingerprint, MessageCircle, MessageSquareText, PhoneForwarded, type LucideIcon } from 'lucide-react';
+import { motion, type Variants } from 'framer-motion';
+import { usePrefersReducedMotion } from './Effects';
+import { ArrowLeftRight, CalendarCheck, ClipboardList, Clock, FileSpreadsheet, Fingerprint, MessageCircle, MessageSquareText, PhoneForwarded, type LucideIcon } from 'lucide-react';
 
 const ability: { icon: LucideIcon; title: string; text: string; state: string }[] = [
   { icon: CalendarCheck, title: 'Kalendář', text: 'Zapíše termín rovnou do vašeho kalendáře, bez dvojích rezervací.', state: 'čt 14:30 · obsazeno ✓' },
@@ -10,15 +11,16 @@ const ability: { icon: LucideIcon; title: string; text: string; state: string }[
   { icon: Clock, title: 'Volné termíny', text: 'Aktivně nabízí nevyužité časy, aby vám nezůstávala prázdná křesla.', state: '3 volná okna zítra' },
   { icon: ClipboardList, title: 'Ranní report', text: 'Každé ráno shrnutí: kdo volal, co se domluvilo a co čeká na vás.', state: 'report · 7:00' },
   { icon: PhoneForwarded, title: 'Předá člověku', text: 'Reklamace, výjimky nebo cokoli mimo pravidla předá vám s krátkým shrnutím.', state: 'předáno · 1 úkol' },
+  { icon: FileSpreadsheet, title: 'Účtenky do Excelu', text: 'Vyfotíte účtenku nebo fakturu, Sára ji přepíše do tabulky pro účetní.', state: 'účtenka → řádek 214 ✓' },
 ];
 
 const container: Variants = { hidden: {}, visible: { transition: { staggerChildren: .07, delayChildren: .08 } } };
 const item: Variants = { hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { duration: .55, ease: 'easeOut' } } };
 
 export function AbilityGrid() {
-  const reduced = useReducedMotion();
-  return <motion.ul className="ability-grid" variants={container} initial={reduced ? false : 'hidden'} whileInView="visible" viewport={{ once: true, amount: .12 }}>
-    {ability.map(({ icon: Icon, title, text, state }) => <motion.li className="ability-card" variants={item} key={title}>
+  const reduced = usePrefersReducedMotion();
+  return <motion.ul className="ability-grid" {...(reduced ? {} : { variants: container, initial: 'hidden' as const, whileInView: 'visible' as const, viewport: { once: true, amount: .12 } })}>
+    {ability.map(({ icon: Icon, title, text, state }) => <motion.li className="ability-card" {...(reduced ? {} : { variants: item })} key={title}>
       <span className="ability-icon" aria-hidden="true"><Icon size={22} strokeWidth={1.5}/></span>
       <h3>{title}</h3>
       <p>{text}</p>

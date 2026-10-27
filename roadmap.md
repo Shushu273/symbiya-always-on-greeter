@@ -10,3 +10,9 @@
 - [x] Add industry photos to homepage rows and industry headers without altering data.
 - [x] Verify phones, routes, images, mobile layout and reduced motion.
 - [x] Add homepage section „Co Sára umí“: 8 glass cards under the hero (4/2/1 columns), gold lucide icons, mono live-state lines, staggered reveal.
+
+# Prodejní upgrade
+- [x] Hero: gold štítek-odkaz na nabídku; nové sekce Co vás pálí, Jádro firmy, kalkulačka; 9. karta do mřížky.
+- [x] Sekce Nabídka (cena 4 990 → 2 495 Kč, slotsLeft v src/data/offer.ts) místo Pilotu; FAQ +3 otázky; Závěr „Rezervovat místo za polovinu“.
+- [x] Oborové stránky: Nabídka + kalkulačka s předvolbou oboru nad patičku.
+- [x] Testy nabídky, build, mobilní layout a reduced-motion kontrola.

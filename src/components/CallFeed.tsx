@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { motion, useMotionValue, useReducedMotion, useSpring } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { usePrefersReducedMotion } from './Effects';
 import { useHydrated } from '@tanstack/react-router';
 import { obory } from '@/data/obory';
 
@@ -10,7 +11,7 @@ export function CallFeed() {
   const pointerY = useMotionValue(0);
   const x = useSpring(pointerX, { stiffness: 45, damping: 20 });
   const y = useSpring(pointerY, { stiffness: 45, damping: 20 });
-  const preference = useReducedMotion();
+  const preference = usePrefersReducedMotion();
   const hydrated = useHydrated();
   const reduced = hydrated && preference;
   const [elapsed, setElapsed] = useState(0);

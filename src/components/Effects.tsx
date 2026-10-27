@@ -1,8 +1,19 @@
-import { useEffect, useRef, type ReactNode } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { motion } from 'framer-motion';
+export function usePrefersReducedMotion() {
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReduced(mq.matches);
+    const on = (e: MediaQueryListEvent) => setReduced(e.matches);
+    mq.addEventListener('change', on);
+    return () => mq.removeEventListener('change', on);
+  }, []);
+  return reduced;
+}
 export function Reveal({ children, className = '' }: { children: ReactNode; className?: string }) {
-  const reduced = useReducedMotion();
-  return <motion.div className={className} initial={reduced ? false : { opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .12 }} transition={{ duration: .65 }}>{children}</motion.div>;
+  const reduced = usePrefersReducedMotion();
+  return <motion.div className={`reveal ${className}`} initial={reduced ? false : { opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .12 }} transition={{ duration: .65 }}>{children}</motion.div>;
 }
 export function CursorGlow() {
   const ref = useRef<HTMLDivElement>(null);
