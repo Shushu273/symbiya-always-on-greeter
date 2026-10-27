@@ -22,3 +22,9 @@
 - [x] Hero mono odkazy „sára · sára pro“, navigace Sára / Sára PRO / Obory / Zavolejte Sáře.
 - [x] Kalkulačka s poznámkou PRO, FAQ otázka Sára vs PRO, oborové stránky se stejnou sekcí.
 - [x] Testy (16), build OK, mobil bez přetečení, reduced-motion statické.
+
+# Ceny: nasazení + provoz
+- [x] offer.ts: nasazení 59 000 → 29 500 (intro), provoz 4 990/měs; PRO 99 000 / 14 990; ceny jen odtud.
+- [x] Výběr se dvěma řádky ceny, hero štítek, kalkulačka (zisk, poctivý záporný stav, návratnost nasazení v měsících).
+- [x] Pilot a „bez závazku“ odstraněny všude; FAQ o nasazení; závěr „Rezervovat nasazení za polovinu“.
+- [x] Testy (17), build OK, mobil bez přetečení.
