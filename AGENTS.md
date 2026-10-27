@@ -14,3 +14,4 @@
 - Keep photo mappings separate from industry business data, with 1600/800px WebP asset pointers and one responsive Photo primitive, to preserve content and avoid expiring hotlinks.
 - Homepage floating call examples derive from industry transcripts and pause offscreen; pointer parallax is desktop-only and disabled for reduced motion to keep the experience lightweight and accessible.
 - All visual colors and effects are defined as semantic global CSS tokens; feature components reference those tokens rather than independent color values.
+- The homepage photo has its own visual wrapper, with mobile-only layout overrides; keep the single call feed shared across layouts to avoid duplicate animation timers and preserve desktop positioning.
