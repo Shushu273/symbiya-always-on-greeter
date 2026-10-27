@@ -8,6 +8,7 @@ import { Reveal, CallCurve } from "@/components/Effects";
 import { obory, DEMO_GASTRO } from "@/data/obory";
 import { saraPhoto, industryPhotos } from "@/data/photos";
 import { Photo } from "@/components/Photo";
+import { AbilityGrid } from "@/components/AbilityGrid";
 
 const title = "SYMBIYA – AI recepční nonstop pro malé podniky";
 const description = "AI recepční, která vezme každý hovor a odpoví na každou zprávu. Ve dne, v noci, o víkendu. Pro barbershopy, kliniky, salony, řemeslníky, dopravu i gastro.";
