@@ -549,7 +549,7 @@ main, .site-footer { position: relative; z-index: 1; }
 .offer-compare { color: var(--muted-foreground); font-size: 15px; line-height: 1.8; max-width: 640px; margin-top: 20px; }
 .offer-tag { animation: offer-pulse 2.6s ease-in-out infinite; }
 @keyframes offer-pulse { 0%, 100% { box-shadow: 0 0 0 0 transparent; } 50% { box-shadow: 0 0 22px color-mix(in srgb, var(--gold) 32%, transparent); } }
-.hero-cal-shade { position: absolute; right: 1.5%; bottom: 8%; width: 26%; height: 38%; z-index: 1; border-radius: 18px; backdrop-filter: blur(26px) brightness(.42); }
+.hero-cal-shade { position: absolute; right: 1.5%; bottom: 6%; width: 27%; height: 47%; z-index: 1; border-radius: 18px; backdrop-filter: blur(26px) brightness(.42); }
 .hero-cal-cover { position: absolute; right: 4%; bottom: 15%; width: 22%; min-width: 250px; z-index: 2; padding: 16px 18px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent); background: color-mix(in srgb, var(--panel) 55%, transparent); backdrop-filter: blur(14px) brightness(.72); font-family: var(--font-mono); font-size: 10px; line-height: 1.6; color: var(--foreground); display: grid; gap: 8px; }
 .hero-cal-cover p { display: flex; gap: 8px; align-items: center; }
 .hero-cal-cover svg { color: var(--success); flex-shrink: 0; }
