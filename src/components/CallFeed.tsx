@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useReducedMotion } from 'framer-motion';
+import { useHydrated } from '@tanstack/react-router';
 import { VoiceSphere } from './VoiceSphere';
 
 const hovory = [
@@ -11,7 +12,9 @@ const hovory = [
   { obor: 'Gastro', q: 'Stůl pro 6 v pátek v 19:00?', a: 'Rezervováno, potvrzeno SMS', t: '0:29' },
 ];
 export function CallFeed() {
-  const reduced = useReducedMotion();
+  const preference = useReducedMotion();
+  const hydrated = useHydrated();
+  const reduced = hydrated && preference;
   const [elapsed, setElapsed] = useState(0);
   useEffect(() => {
     if (reduced) return;
@@ -21,6 +24,7 @@ export function CallFeed() {
   }, [reduced]);
   const index = reduced ? 0 : Math.floor(elapsed / 9000) % hovory.length;
   const h = hovory[index];
+  if (!h) return null;
   const phase = reduced ? 8500 : elapsed % 9000;
   const q = h.q.slice(0, Math.max(0, Math.floor((phase - 700) / 42)));
   const answer = phase >= 3000;

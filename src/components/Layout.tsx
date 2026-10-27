@@ -7,7 +7,7 @@ import { CursorGlow } from './Effects';
 export function Logo() {
   return <Link to="/" className="logo" aria-label="symbiya – úvod"><span className="logo-symbol" aria-hidden="true"><i/><i/><i/><i/><i/></span>symbiya<span className="logo-period">.</span></Link>;
 }
-export function Header({ demo }: { demo?: Demo }) {
+export function Header({ demo }: { demo?: Demo | undefined }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -23,6 +23,6 @@ export function Header({ demo }: { demo?: Demo }) {
     <Button asChild className="header-cta"><a href={mailUkazka()}>Domluvit ukázku<ArrowUpRight size={15}/></a></Button>
   </nav></div></header></>;
 }
-export function Footer({ demo }: { demo?: { cislo: string; tel: string } }) {
+export function Footer({ demo }: { demo?: { cislo: string; tel: string } | undefined }) {
   return <footer className="site-footer"><div className="page-width footer-top"><div><Logo/><p>SYMBIYA s.r.o., IČO 042 25 899, Praha</p>{demo && <p>Demo: <a href={`tel:${demo.tel}`}>{demo.cislo}</a></p>}<p><a href={`mailto:${MAIL}`}>{MAIL}</a></p></div><ul>{obory.map(o => <li key={o.slug}><Link to="/$obor" params={{ obor: o.slug }}>{o.nazev}<ArrowUpRight size={13}/></Link></li>)}</ul></div></footer>;
 }

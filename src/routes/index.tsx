@@ -46,7 +46,7 @@ function Index() {
       <ul className="industry-list">{obory.map(o => <li key={o.slug}><Link to="/$obor" params={{ obor: o.slug }} className="industry-row"><span className="industry-name">{o.nazev}{o.demo && <span className="demo-badge">živé demo</span>}</span><span className="industry-pain">{o.bolest}</span><ArrowUpRight className="industry-arrow" size={30}/><span className="row-wave" aria-hidden="true"/></Link></li>)}</ul>
     </div></section>
     <section className="section-dark section-space" aria-labelledby="umi"><Reveal className="page-width"><div className="section-heading"><h2 id="umi">Jak to funguje<span className="text-primary">.</span></h2><span className="mono text-muted-foreground">Co umí</span></div>
-      <div className="pipeline">{[PhoneIncoming, AudioLines, CheckCheck, Sunrise].map((Icon, i) => <div className="pipeline-node" key={umi[i][0]}><span className="pipeline-icon"><Icon size={25}/></span><span className="pipeline-label">{['Hovor', 'Porozumí', 'Vyřídí', 'Ranní předávka'][i]}</span><h3>{umi[i][0]}</h3><p>{umi[i][1]}</p></div>)}</div>
+      <div className="pipeline">{umi.map(([t, d], i) => { const Icon = [PhoneIncoming, AudioLines, CheckCheck, Sunrise][i] ?? AudioLines; return <div className="pipeline-node" key={t}><span className="pipeline-icon"><Icon size={25}/></span><span className="pipeline-label">{['Hovor', 'Porozumí', 'Vyřídí', 'Ranní předávka'][i]}</span><h3>{t}</h3><p>{d}</p></div>; })}</div>
       <p className="handoff-note"><span className="status-dot"/>Když něco neví, předá to člověku. Nic si nevymýšlí.</p>
     </Reveal></section><Pilot/><Faq/><Zaver/>
   </main><Footer/></>;

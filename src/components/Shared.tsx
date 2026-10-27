@@ -22,6 +22,6 @@ const faq = [
 export function Faq() {
   return <section className="section-dark section-space" aria-labelledby="faq"><Reveal className="page-width faq-layout"><h2 id="faq">Časté otázky<span className="text-primary">.</span></h2><div className="glass-panel faq-panel">{faq.map(([q,a]) => <details key={q} className="faq-item"><summary>{q}<Plus size={20} aria-hidden="true"/></summary><div className="faq-answer"><p>{a}</p></div></details>)}</div></Reveal></section>;
 }
-export function Zaver({ demo }: { demo?: { cislo: string; tel: string } }) {
+export function Zaver({ demo }: { demo?: { cislo: string; tel: string } | undefined }) {
   return <section className="section-dark closing-section" aria-labelledby="zaver"><Reveal className="page-width"><span className="closing-signal" aria-hidden="true"><i/><i/><i/><i/><i/><i/><i/></span><h2 id="zaver">Kolik hovorů jste dnes <span className="gradient-text">nevzali?</span></h2><div className="closing-actions"><Button asChild><a href={mailHovor}>Domluvit 20min hovor<ArrowUpRight size={18}/></a></Button>{demo && <Button asChild variant="secondary"><a href={`tel:${demo.tel}`}><Phone size={16}/>Zavolat demo {demo.cislo}</a></Button>}</div></Reveal></section>;
 }

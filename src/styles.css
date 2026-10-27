@@ -79,8 +79,8 @@
 .industry-menu { position: absolute; width: 270px; top: 60px; right: 0; padding: 9px; }
 .industry-menu a { display: flex; justify-content: space-between; padding: 12px; font-size: 14px; }
 .industry-menu a:hover { color: var(--primary); background: color-mix(in srgb, var(--primary) 5%, transparent); }
-.home-hero { position: relative; min-height: calc(100svh - 84px); display: flex; flex-direction: column; justify-content: center; overflow: clip; }
-.hero-layout { display: grid; grid-template-columns: 1.04fr 1fr; gap: 38px; align-items: center; padding-top: 64px; padding-bottom: 76px; }
+.home-hero { position: relative; min-height: calc(100svh - 120px); display: flex; flex-direction: column; justify-content: center; overflow: clip; }
+.hero-layout { flex: 1; display: grid; grid-template-columns: 1.04fr 1fr; gap: 38px; align-items: center; padding-top: 64px; padding-bottom: 76px; }
 .hero-copy { position: relative; z-index: 2; }
 .hero-copy h1 { font-size: 84px; line-height: 1.03; margin-top: 29px; }
 .hero-description { font-size: 16px; line-height: 1.8; color: var(--muted-foreground); max-width: 490px; margin-top: 28px; }
@@ -243,7 +243,7 @@ main, .site-footer { position: relative; z-index: 1; }
   .voice-cycle { margin-top: 10px; }
   .call-captions p { font-size: 13px; }
   .hero-copy { width: 100%; }
-  .hero-copy h1 { font-size: 53px; margin-top: 20px; }
+  .hero-copy h1 { font-size: 43px; margin-top: 20px; }
   .hero-description { font-size: 14px; margin-top: 22px; line-height: 1.85; }
   .system-status { font-size: 9px; }
   .hero-actions { gap: 10px; margin-top: 25px; }
@@ -303,7 +303,7 @@ main, .site-footer { position: relative; z-index: 1; }
 @media (max-width: 370px) {
   .page-width, .header-inner { width: calc(100% - 28px); }
   .header-cta { padding-inline: 9px; } .header-cta svg { display: none; }
-  .hero-copy h1 { font-size: 46px; }
+  .hero-copy h1 { font-size: 39px; }
   .hero-actions .btn { font-size: 11px; padding-inline: 13px; }
   .demo-number { font-size: 23px; }
   .industry-name, .industry-name:has(.demo-badge) { font-size: 25px; }
@@ -314,3 +314,8 @@ main, .site-footer { position: relative; z-index: 1; }
   .curve-line { stroke-dashoffset: 0; }
   .cursor-glow { display: none; }
 }
+
+.button-small { min-height: 36px; padding: 8px 13px; }
+.button-large { min-height: 56px; }
+.button-icon { width: 40px; height: 40px; min-height: 40px; padding: 9px; }
+@media (max-width: 760px) { .header-cta { white-space: nowrap; font-size: 10px; padding-inline: 10px; } }
