@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { Button } from './ui/button';
 import { Reveal, usePrefersReducedMotion } from './Effects';
-import { OFFER, ZAKAZKA_PRESETS, mailPilot, monthlyLoss, paybackJobs, presetForObor, roiMultiple } from '@/data/offer';
+import { OFFER, ZAKAZKA_PRESETS, mailNasazeni, monthlyLoss, monthlyProfit, presetForObor, setupPaybackMonths } from '@/data/offer';
 
 const fmt = new Intl.NumberFormat('cs-CZ');
 const fmtKc = (n: number) => `${fmt.format(n)} Kč`;
@@ -36,12 +36,14 @@ export function Calculator({ preset }: { preset?: string | undefined }) {
   const [active, setActive] = useState<string | undefined>(() => (presetForObor(preset ?? '') ? preset : undefined));
 
   const loss = monthlyLoss(missed, share, value);
-  const jobs = paybackJobs(value);
-  const roi = roiMultiple(loss);
+  const profit = monthlyProfit(loss);
+  const months = setupPaybackMonths(loss);
 
   const lossA = useAnimatedNumber(loss, reduced);
-  const jobsA = useAnimatedNumber(jobs, reduced);
-  const roiA = useAnimatedNumber(Math.round(roi * 10), reduced);
+  const profitA = useAnimatedNumber(profit, reduced);
+  const monthsA = useAnimatedNumber(months ?? 0, reduced);
+
+  const mesice = (n: number) => n === 1 ? 'měsíc' : n < 5 ? 'měsíce' : 'měsíců';
 
   return (
     <section className="section-dark section-space calc-section" aria-labelledby="kalkulacka">
@@ -79,20 +81,22 @@ export function Calculator({ preset }: { preset?: string | undefined }) {
               <strong className="calc-loss">{fmtKc(lossA)}</strong>
             </div>
             <div>
-              <span className="calc-out-label">sára stojí</span>
-              <p className="calc-price"><s>{fmtKc(OFFER.priceFull)} / měs.</s><strong>{fmtKc(OFFER.priceIntro)}</strong> v zaváděcí nabídce</p>
+              <span className="calc-out-label">provoz Sáry</span>
+              <p className="calc-line"><strong>{fmtKc(OFFER.monthly)}</strong> / měsíc</p>
             </div>
             <div>
-              <span className="calc-out-label">zaplatí se po</span>
-              <p className="calc-line"><strong>{jobsA}</strong> zachráněných zakázkách</p>
+              <span className="calc-out-label">čistě vám zůstane</span>
+              {profit > 0
+                ? <p className="calc-line"><strong className="calc-roi">{fmtKc(profitA)}</strong> měsíčně</p>
+                : <p className="calc-line calc-honest">Při těchto číslech se Sára nevyplatí</p>}
             </div>
-            <div>
-              <span className="calc-out-label">návratnost</span>
-              <p className="calc-line"><strong className="calc-roi">{fmt.format(roiA / 10)} ×</strong></p>
-            </div>
-            <p className="calc-note">Modelový výpočet z vašich čísel, ne garance.</p>
-            <p className="calc-pro-note">Sára PRO od {fmt.format(OFFER.pricePro)} Kč / měsíc</p>
-            <Button asChild><a href={mailPilot}>Chci to zkusit na své firmě<ArrowUpRight size={17} /></a></Button>
+            {months !== null && <div>
+              <span className="calc-out-label">nasazení ({fmtKc(OFFER.setupIntro)}) se vrátí za</span>
+              <p className="calc-line"><strong>{monthsA}</strong> {mesice(monthsA)}</p>
+            </div>}
+            <p className="calc-note">Modelový výpočet z vašich čísel, ne garance. Ceny bez DPH.</p>
+            <p className="calc-pro-note">Sára PRO: provoz od {fmt.format(OFFER.proMonthly)} Kč / měsíc</p>
+            <Button asChild><a href={mailNasazeni}>Chci to zkusit na své firmě<ArrowUpRight size={17} /></a></Button>
           </div>
         </div>
       </Reveal>

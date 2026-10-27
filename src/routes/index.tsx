@@ -48,14 +48,14 @@ function Index() {
           <p className="system-status sara-identity"><span className="status-dot"/>ai recepční · nonstop · česky / anglicky</p>
           <p className="hero-description">Zatímco stříháte, operujete nebo řídíte, Sára zvedá telefon, objednává a pošle potvrzení SMS. Ve dne, v noci, o víkendu.</p>
           <p className="hero-products mono"><a href="#nabidka">sára</a><span aria-hidden="true"> · </span><a href="#nabidka">sára pro</a></p>
-          <a href="#nabidka" className="offer-tag">zaváděcí nabídka · −50 % pro prvních 10 firem<ArrowRight size={11}/></a>
+          <a href="#nabidka" className="offer-tag">zaváděcí nabídka · nasazení Sáry za polovinu · prvních 10 firem<ArrowRight size={11}/></a>
           <div className="hero-actions"><div className="sara-primary"><Button asChild><a href={`tel:${DEMO_GASTRO.tel}`}><Phone size={18}/>Zavolejte Sáře teď</a></Button><span className="mono sara-demo-label">222 760 297 · živé demo</span></div><Button asChild variant="secondary"><a href="#obory">Vyberte svůj obor<ArrowRight size={18}/></a></Button></div>
         </div><CallFeed/>
       </div>
       <div className="hero-baseline page-width" aria-hidden="true"><span><i/>nonstop</span><span>↓</span><span>symbiya</span></div>
     </section>
     <PainRows/>
-    <section className="section-dark section-space ability-section" aria-labelledby="sara-umi"><div className="page-width"><Reveal><div className="section-heading ability-heading"><div><h2 id="sara-umi">Víc než zvedání telefonu<span className="text-primary">.</span></h2><p className="ability-sub">Sára hovor nejen vezme, ale dotáhne do konce – a druhý den vám řekne, co se dělo.</p></div><span className="section-marker" aria-hidden="true">↘</span></div></Reveal><AbilityGrid/><p className="ability-note">Napojení na kalendář a WhatsApp nastavíme v pilotu podle toho, co už používáte.</p></div></section>
+    <section className="section-dark section-space ability-section" aria-labelledby="sara-umi"><div className="page-width"><Reveal><div className="section-heading ability-heading"><div><h2 id="sara-umi">Víc než zvedání telefonu<span className="text-primary">.</span></h2><p className="ability-sub">Sára hovor nejen vezme, ale dotáhne do konce – a druhý den vám řekne, co se dělo.</p></div><span className="section-marker" aria-hidden="true">↘</span></div></Reveal><AbilityGrid/><p className="ability-note">Napojení na kalendář a WhatsApp nastavíme při nasazení podle toho, co už používáte.</p></div></section>
     <CoreHub/>
     <Calculator/>
     <section id="obory" className="section-dark section-space industry-section" aria-labelledby="obory-h"><div className="page-width"><Reveal><div className="section-heading"><h2 id="obory-h">Vyberte svůj obor<span className="text-primary">.</span></h2><span className="section-marker" aria-hidden="true">↘</span></div></Reveal>
