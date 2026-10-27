@@ -53,6 +53,7 @@ function Index() {
           <div className="hero-actions"><div className="sara-primary"><Button asChild><a href={`tel:${DEMO_GASTRO.tel}`}><Phone size={18}/>Zavolejte Sáře teď</a></Button><span className="mono sara-demo-label">222 760 297 · zvedne ihned · živé demo, nic nekupujete</span></div><AudioDemo/></div>
         </div><CallFeed/>
       </div>
+      <div className="hero-cal-shade" aria-hidden="true"/>
       <div className="hero-cal-cover" aria-hidden="true">
         <p><Check size={13}/>termín uložen do kalendáře · st 14:00</p>
         <p><Check size={13}/>sms potvrzení odesláno</p>
