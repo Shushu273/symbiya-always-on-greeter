@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import { ArrowLeftRight, CalendarCheck, ClipboardList, Clock, Fingerprint, MessageCircle, MessageSquareText, PhoneForwarded, type LucideIcon } from 'lucide-react';
 
 const ability: { icon: LucideIcon; title: string; text: string; state: string }[] = [
@@ -12,8 +12,8 @@ const ability: { icon: LucideIcon; title: string; text: string; state: string }[
   { icon: PhoneForwarded, title: 'Předá člověku', text: 'Reklamace, výjimky nebo cokoli mimo pravidla předá vám s krátkým shrnutím.', state: 'předáno · 1 úkol' },
 ];
 
-const container = { hidden: {}, visible: { transition: { staggerChildren: .07, delayChildren: .08 } } };
-const item = { hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { duration: .55, ease: 'easeOut' } } };
+const container: Variants = { hidden: {}, visible: { transition: { staggerChildren: .07, delayChildren: .08 } } };
+const item: Variants = { hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { duration: .55, ease: 'easeOut' } } };
 
 export function AbilityGrid() {
   const reduced = useReducedMotion();
