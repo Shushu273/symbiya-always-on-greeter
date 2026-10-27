@@ -1,5 +1,5 @@
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import { ArrowLeftRight, CalendarCheck, ClipboardList, Clock, Fingerprint, MessageCircle, MessageSquareText, PhoneForwarded, type LucideIcon } from 'lucide-react';
+import { ArrowLeftRight, CalendarCheck, ClipboardList, Clock, FileSpreadsheet, Fingerprint, MessageCircle, MessageSquareText, PhoneForwarded, type LucideIcon } from 'lucide-react';
 
 const ability: { icon: LucideIcon; title: string; text: string; state: string }[] = [
   { icon: CalendarCheck, title: 'Kalendář', text: 'Zapíše termín rovnou do vašeho kalendáře, bez dvojích rezervací.', state: 'čt 14:30 · obsazeno ✓' },
@@ -10,6 +10,7 @@ const ability: { icon: LucideIcon; title: string; text: string; state: string }[
   { icon: Clock, title: 'Volné termíny', text: 'Aktivně nabízí nevyužité časy, aby vám nezůstávala prázdná křesla.', state: '3 volná okna zítra' },
   { icon: ClipboardList, title: 'Ranní report', text: 'Každé ráno shrnutí: kdo volal, co se domluvilo a co čeká na vás.', state: 'report · 7:00' },
   { icon: PhoneForwarded, title: 'Předá člověku', text: 'Reklamace, výjimky nebo cokoli mimo pravidla předá vám s krátkým shrnutím.', state: 'předáno · 1 úkol' },
+  { icon: FileSpreadsheet, title: 'Účtenky do Excelu', text: 'Vyfotíte účtenku nebo fakturu, Sára ji přepíše do tabulky pro účetní.', state: 'účtenka → řádek 214 ✓' },
 ];
 
 const container: Variants = { hidden: {}, visible: { transition: { staggerChildren: .07, delayChildren: .08 } } };
