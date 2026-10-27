@@ -1,4 +1,5 @@
-import { motion, useReducedMotion, type Variants } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
+import { usePrefersReducedMotion } from './Effects';
 import { ArrowLeftRight, CalendarCheck, ClipboardList, Clock, FileSpreadsheet, Fingerprint, MessageCircle, MessageSquareText, PhoneForwarded, type LucideIcon } from 'lucide-react';
 
 const ability: { icon: LucideIcon; title: string; text: string; state: string }[] = [
@@ -17,7 +18,7 @@ const container: Variants = { hidden: {}, visible: { transition: { staggerChildr
 const item: Variants = { hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { duration: .55, ease: 'easeOut' } } };
 
 export function AbilityGrid() {
-  const reduced = useReducedMotion();
+  const reduced = usePrefersReducedMotion();
   return <motion.ul className="ability-grid" {...(reduced ? {} : { variants: container, initial: 'hidden' as const, whileInView: 'visible' as const, viewport: { once: true, amount: .12 } })}>
     {ability.map(({ icon: Icon, title, text, state }) => <motion.li className="ability-card" {...(reduced ? {} : { variants: item })} key={title}>
       <span className="ability-icon" aria-hidden="true"><Icon size={22} strokeWidth={1.5}/></span>

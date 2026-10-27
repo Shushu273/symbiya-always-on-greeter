@@ -1,6 +1,6 @@
-import { motion, useReducedMotion, type Variants } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { saraPhoto } from '@/data/photos';
-import { Reveal } from './Effects';
+import { Reveal, usePrefersReducedMotion } from './Effects';
 
 const nodes = [
   { label: 'Telefon', x: 13, y: 16 },
@@ -21,7 +21,7 @@ const nodeVar: Variants = {
 };
 
 export function CoreHub() {
-  const reduced = useReducedMotion();
+  const reduced = usePrefersReducedMotion();
   const lineProps = (i: number) => reduced ? {} : { custom: i, variants: lineVar, initial: 'hidden' as const, whileInView: 'visible' as const, viewport: { once: true, amount: .3 } };
   const nodeProps = (i: number) => reduced ? {} : { custom: i, variants: nodeVar, initial: 'hidden' as const, whileInView: 'visible' as const, viewport: { once: true, amount: .3 } };
   return (

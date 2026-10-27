@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { useReducedMotion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { Button } from './ui/button';
-import { Reveal } from './Effects';
+import { Reveal, usePrefersReducedMotion } from './Effects';
 import { OFFER, ZAKAZKA_PRESETS, mailPilot, monthlyLoss, paybackJobs, presetForObor, roiMultiple } from '@/data/offer';
 
 const fmt = new Intl.NumberFormat('cs-CZ');
@@ -30,7 +29,7 @@ function useAnimatedNumber(target: number, reduced: boolean | null) {
 }
 
 export function Calculator({ preset }: { preset?: string | undefined }) {
-  const reduced = useReducedMotion();
+  const reduced = usePrefersReducedMotion();
   const [missed, setMissed] = useState(15);
   const [share, setShare] = useState(30);
   const [value, setValue] = useState(() => presetForObor(preset ?? '') ?? 700);

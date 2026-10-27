@@ -1,6 +1,6 @@
-import { motion, useReducedMotion, type Variants } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { Reveal } from './Effects';
+import { Reveal, usePrefersReducedMotion } from './Effects';
 
 const pains: [string, string, string][] = [
   ['Nezvednutý hovor = zakázka u konkurence.', 'Kdo se nedovolá, nezkouší to znovu.', 'Sára zvedne do pár vteřin, i v noci.'],
@@ -14,7 +14,7 @@ const container: Variants = { hidden: {}, visible: { transition: { staggerChildr
 const row: Variants = { hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: .5, ease: 'easeOut' } } };
 
 export function PainRows() {
-  const reduced = useReducedMotion();
+  const reduced = usePrefersReducedMotion();
   return (
     <section className="section-dark section-space pain-section" aria-labelledby="pali">
       <div className="page-width">
