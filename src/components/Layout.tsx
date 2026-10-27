@@ -1,7 +1,7 @@
 import { Link } from '@tanstack/react-router';
-import { ArrowUpRight, ChevronDown } from 'lucide-react';
+import { ArrowUpRight, ChevronDown, Phone } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
-import { obory, mailUkazka, MAIL, type Demo } from '@/data/obory';
+import { obory, MAIL, DEMO_GASTRO, type Demo } from '@/data/obory';
 import { Button } from './ui/button';
 import { CursorGlow } from './Effects';
 export function Logo() {
@@ -18,9 +18,11 @@ export function Header({ demo }: { demo?: Demo | undefined }) {
   }, []);
   return <><CursorGlow/><header className="site-header"><div className="header-inner"><Logo/><nav aria-label="Hlavní navigace">
     {demo && <a className="header-demo" href={`tel:${demo.tel}`}><span className="status-dot"/>{demo.cislo}</a>}
+    <a className="header-link" href="#nabidka">Sára</a>
+    <a className="header-link" href="#nabidka">Sára PRO</a>
     <div ref={ref} className="relative"><Button variant="ghost" aria-expanded={open} aria-controls="menu-obory" onClick={() => setOpen(v => !v)}>Obory<ChevronDown size={14} className={open ? 'rotate-180' : ''}/></Button>
     {open && <ul id="menu-obory" className="industry-menu glass-panel">{obory.map(o => <li key={o.slug}><Link to="/$obor" params={{ obor: o.slug }} onClick={() => setOpen(false)}>{o.nazev}<ArrowUpRight size={15}/></Link></li>)}</ul>}</div>
-    <Button asChild className="header-cta"><a href={mailUkazka()}>Domluvit ukázku<ArrowUpRight size={15}/></a></Button>
+    <Button asChild className="header-cta"><a href={`tel:${DEMO_GASTRO.tel}`}><Phone size={14}/>Zavolejte Sáře</a></Button>
   </nav></div></header></>;
 }
 export function Footer({ demo }: { demo?: { cislo: string; tel: string } | undefined }) {

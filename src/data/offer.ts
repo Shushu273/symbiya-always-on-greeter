@@ -5,9 +5,11 @@ export const OFFER = {
   slotsLeft: 10,
   priceFull: 4990,
   priceIntro: 2495,
+  pricePro: 14990,
 } as const;
 
 export const mailPilot = `mailto:${MAIL}?subject=${encodeURIComponent('Pilot SYMBIYA')}`;
+export const mailPro = `mailto:${MAIL}?subject=${encodeURIComponent('Sára PRO')}`;
 
 export const ZAKAZKA_PRESETS: { slug: string; label: string; value: number }[] = [
   { slug: 'barbershopy', label: 'Barbershop', value: 700 },
