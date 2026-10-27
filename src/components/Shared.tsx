@@ -53,7 +53,7 @@ export function Faq() {
   );
 }
 
-export function Zaver({ demo }: { demo?: { cislo: string; tel: string } }) {
+export function Zaver({ demo }: { demo?: { cislo: string; tel: string } | undefined }) {
   return (
     <section className="section-light" aria-labelledby="zaver">
       <div className="mx-auto max-w-6xl px-5 py-24">

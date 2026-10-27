@@ -9,7 +9,7 @@ export type Obor = {
   podnadpis: string;
   title: string;
   description: string;
-  demo?: Demo;
+  demo?: Demo | undefined;
   hovory: { dotaz: string; akce: string }[];
   prepis: { kdo: "klient" | "recepce"; text: string }[];
   potrebuje: string[];

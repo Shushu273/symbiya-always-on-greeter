@@ -55,7 +55,7 @@ export function Header() {
   );
 }
 
-export function Footer({ demo }: { demo?: { cislo: string; tel: string } }) {
+export function Footer({ demo }: { demo?: { cislo: string; tel: string } | undefined }) {
   return (
     <footer className="section-dark border-t border-haze/10">
       <div className="mx-auto grid max-w-6xl gap-8 px-5 py-12 sm:grid-cols-2">
