@@ -31,6 +31,7 @@ export function Offer() {
           <h2 id="nabidka-h">Vyberte si Sáru<span className="text-primary">.</span></h2>
           <span className="section-marker" aria-hidden="true">↘</span>
         </div>
+        <p className="offer-compare">Lidská recepční vás stojí desítky tisíc měsíčně a pracuje osm hodin denně. Sára pracuje nonstop.</p>
         <div className="offer-grid">
           <div className="offer-panel">
             <h3>Sára</h3>
