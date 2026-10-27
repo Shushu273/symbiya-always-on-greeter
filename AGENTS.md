@@ -10,6 +10,7 @@
 <!-- LOVABLE:END -->
 
 - Obor pages render from one template (src/routes/$obor.tsx) fed by src/data/obory.ts; add new obory as data only.
-- Shared visual primitives (Button, Reveal, VoiceSphere and LiveChat) keep the homepage and data-driven industry pages consistent without duplicating industry data.
-- The voice sphere uses a lazy-loaded 2D particle canvas with at most 1150 particles, capped pixel ratio, visibility pausing and a static reduced-motion mode to avoid a heavy 3D runtime.
+- Shared visual primitives (Button, Reveal, Photo and LiveChat) keep homepage and data-driven industry pages consistent without duplicating industry data.
+- Keep photo mappings separate from industry business data, with 1600/800px WebP asset pointers and one responsive Photo primitive, to preserve content and avoid expiring hotlinks.
+- Homepage floating call examples derive from industry transcripts and pause offscreen; pointer parallax is desktop-only and disabled for reduced motion to keep the experience lightweight and accessible.
 - All visual colors and effects are defined as semantic global CSS tokens; feature components reference those tokens rather than independent color values.
