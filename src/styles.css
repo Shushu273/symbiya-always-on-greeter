@@ -319,3 +319,12 @@ main, .site-footer { position: relative; z-index: 1; }
 .button-large { min-height: 56px; }
 .button-icon { width: 40px; height: 40px; min-height: 40px; padding: 9px; }
 @media (max-width: 760px) { .header-cta { white-space: nowrap; font-size: 10px; padding-inline: 10px; } }
+@media (max-width: 370px) {
+  .site-header .logo { font-size: 20px; }
+  .site-header .logo-symbol { width: 15px; margin-right: 4px; gap: 2px; }
+  .site-header .logo-symbol i { width: 2px; }
+  .header-inner { gap: 6px; }
+  .site-header nav { gap: 3px; }
+  .site-header .header-cta { font-size: 9px; padding-inline: 8px; }
+  .site-header .btn-ghost { font-size: 10px; padding-inline: 4px; gap: 3px; }
+}
