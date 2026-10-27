@@ -30,6 +30,7 @@
 - [x] Testy (17), build OK, mobil bez přetečení.
 
 # Konverzní úpravy
+- [x] Oprava mobilního hero: samostatná fotka nad textem, jeden panel hovoru; ověřit 360, 390 a 430 px a nezměněný desktop.
 - [x] Hero: štítek nad nadpis, nový podnadpis, pulzující gold štítek „posledních 10 míst“, demo popisek.
 - [x] AudioDemo (přehrávač + synchronizovaný přepis, /audio/sara-ukazka.mp3) – skrytý, dokud mp3 neexistuje.
 - [x] Přepisy hovorů končí termínem + SMS; stavebnictví = koupelna; CallFeed „vyřízeno · termín + sms“.

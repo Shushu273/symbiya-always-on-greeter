@@ -338,6 +338,7 @@ main, .site-footer { position: relative; z-index: 1; }
 
 /* Photo-led reception */
 .sara-hero { min-height: 740px; height: min(880px, calc(100svh - 118px)); isolation: isolate; }
+.sara-visual { position: absolute; inset: 0; z-index: -1; }
 .hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% center; z-index: -3; }
 .sara-photo { animation: sara-zoom 20s ease-in-out infinite alternate; }
 .photo-shade { position: absolute; inset: 0; background: var(--photo-shade); z-index: -2; pointer-events: none; }
@@ -597,4 +598,26 @@ main, .site-footer { position: relative; z-index: 1; }
 @media (prefers-reduced-motion: reduce) {
   .offer-tag { animation: none; }
   .offer-tag:hover { box-shadow: none; }
+}
+
+/* Homepage mobile portrait is separate from the copy. */
+@media (width < 768px) {
+  .sara-hero { height: auto; min-height: 0; justify-content: flex-start; }
+  .sara-visual { position: relative; inset: auto; flex: none; width: 100%; aspect-ratio: 4 / 5; max-height: 70vh; overflow: hidden; z-index: 0; }
+  .sara-hero .sara-photo { height: 100%; z-index: 0; object-position: 78% 25%; animation: none; transform: scale(1.8); transform-origin: 78% 15%; }
+  .sara-hero .photo-shade { height: 100%; z-index: 1; background: linear-gradient(0deg, var(--background), transparent 28%); }
+  .sara-hero .gold-dust { display: none; }
+  .sara-hero .sara-layout { position: static; display: block; width: calc(100% - 40px); flex: none; padding-block: 24px; }
+  .sara-layout .hero-copy { max-width: 100%; min-width: 0; }
+  .sara-layout h1 { font-size: 43px; }
+  .sara-layout h1 br:last-child { display: none; }
+  .sara-hero .sara-calls { position: absolute; left: 20px; right: 20px; top: max(0px, calc(min(125vw, 70vh) - 112px)); width: auto; max-width: none; height: 92px; margin: 0; transform: none !important; }
+  .sara-hero .incoming-call { inset: 0; width: 100%; padding: 12px 14px; height: 92px; animation: none; }
+  .sara-hero .incoming-call p { font-size: 11px; line-height: 1.6; min-height: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .sara-hero .incoming-call .caption-status { font-size: 8px; }
+  .sara-hero .answer-call, .sara-hero .activity-call, .sara-hero .hero-cal-cover, .sara-hero .hero-cal-shade { display: none; }
+}
+@media (max-width: 370px) {
+  .sara-hero .sara-layout { width: calc(100% - 28px); }
+  .sara-layout h1 { font-size: 37px; }
 }

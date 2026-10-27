@@ -40,9 +40,11 @@ const umi = [
 function Index() {
   return <><Header /><main>
     <section className="home-hero sara-hero section-dark">
-      <Photo photo={saraPhoto} hero className="hero-photo sara-photo" />
-      <div className="photo-shade" aria-hidden="true"/>
-      <div className="gold-dust" aria-hidden="true"><i/><i/><i/><i/><i/><i/><i/><i/></div>
+      <div className="sara-visual">
+        <Photo photo={saraPhoto} hero className="hero-photo sara-photo" />
+        <div className="photo-shade" aria-hidden="true"/>
+        <div className="gold-dust" aria-hidden="true"><i/><i/><i/><i/><i/><i/><i/><i/></div>
+      </div>
       <div className="page-width hero-layout sara-layout">
         <div className="hero-copy">
           <p className="system-status sara-identity"><span className="status-dot"/>ai recepční · nonstop · česky / anglicky</p>
