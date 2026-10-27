@@ -1,7 +1,8 @@
 import { Link } from '@tanstack/react-router';
 import { ArrowUpRight, ChevronDown, Phone } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
-import { obory, MAIL, DEMO_GASTRO, type Demo } from '@/data/obory';
+import { obory, DEMO_GASTRO, type Demo } from '@/data/obory';
+import { COMPANY } from '@/data/company';
 import { Button } from './ui/button';
 import { CursorGlow } from './Effects';
 import { useAudioAvailable } from './AudioDemo';
@@ -29,5 +30,5 @@ export function Header({ demo }: { demo?: Demo | undefined }) {
   </nav></div></header></>;
 }
 export function Footer({ demo }: { demo?: { cislo: string; tel: string } | undefined }) {
-  return <footer className="site-footer"><div className="page-width footer-top"><div><Logo/><p>SYMBIYA s.r.o., IČO 042 25 899, Praha</p>{demo && <p>Demo: <a href={`tel:${demo.tel}`}>{demo.cislo}</a></p>}<p><a href={`mailto:${MAIL}`}>{MAIL}</a></p></div><ul>{obory.map(o => <li key={o.slug}><Link to="/$obor" params={{ obor: o.slug }}>{o.nazev}<ArrowUpRight size={13}/></Link></li>)}</ul></div></footer>;
+  return <footer className="site-footer"><div className="page-width footer-top"><div><Logo/><p>{COMPANY.name}, IČO {COMPANY.ico}, {COMPANY.address}</p>{demo && <p>Demo: <a href={`tel:${demo.tel}`}>{demo.cislo}</a></p>}<p><a href={`mailto:${COMPANY.mail}`}>{COMPANY.mail}</a></p></div><ul>{obory.map(o => <li key={o.slug}><Link to="/$obor" params={{ obor: o.slug }}>{o.nazev}<ArrowUpRight size={13}/></Link></li>)}</ul></div></footer>;
 }
