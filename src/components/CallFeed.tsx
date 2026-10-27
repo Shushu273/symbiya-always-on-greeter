@@ -43,7 +43,7 @@ export function CallFeed() {
   const done = phase >= 6200;
   return <motion.div ref={ref} className="sara-calls" style={{ x, y }} aria-label="Ukázkový rozhovor s AI recepční">
     <div className="sara-call incoming-call glass-panel"><span className="caption-status"><span className="status-dot"/>příchozí hovor · {h.obor.toLowerCase()}</span><p>„{q || '\u00a0'}“<span className={!reduced && !answer ? 'text-caret' : 'invisible'}>|</span></p></div>
-    <div className={`sara-call answer-call glass-panel ${answer ? 'is-visible' : ''}`}><span className="caption-status">Sára · ai recepční</span><p>{h.a}</p><span className={`call-complete ${done ? 'is-visible' : ''}`}><span className="status-dot"/>vyřízeno · 0:38</span></div>
+    <div className={`sara-call answer-call glass-panel ${answer ? 'is-visible' : ''}`}><span className="caption-status">Sára · ai recepční</span><p>{h.a}</p><span className={`call-complete ${done ? 'is-visible' : ''}`}><span className="status-dot"/>vyřízeno · termín + sms</span></div>
     <div className="sara-call activity-call glass-panel" aria-hidden="true"><span className="audio-signal"><i/><i/><i/><i/><i/><i/><i/></span><span className="mono">linka aktivní</span><span className="voice-cycle">{hovory.map((_, i) => <span key={i} className={i === index ? 'active' : ''} />)}</span></div>
   </motion.div>;
 }
