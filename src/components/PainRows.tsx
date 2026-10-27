@@ -24,9 +24,9 @@ export function PainRows() {
             <span className="section-marker" aria-hidden="true">↘</span>
           </div>
         </Reveal>
-        <motion.ul className="pain-list" variants={container} initial={reduced ? false : 'hidden'} whileInView="visible" viewport={{ once: true, amount: .15 }}>
+        <motion.ul className="pain-list" {...(reduced ? {} : { variants: container, initial: 'hidden' as const, whileInView: 'visible' as const, viewport: { once: true, amount: .15 } })}>
           {pains.map(([pain, cost, fix]) => (
-            <motion.li className="pain-row" variants={row} key={pain}>
+            <motion.li className="pain-row" {...(reduced ? {} : { variants: row })} key={pain}>
               <h3>{pain}</h3>
               <p className="pain-cost">{cost}</p>
               <p className="pain-fix"><ArrowRight size={16} aria-hidden="true" />{fix}</p>

@@ -18,8 +18,8 @@ const item: Variants = { hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y
 
 export function AbilityGrid() {
   const reduced = useReducedMotion();
-  return <motion.ul className="ability-grid" variants={container} initial={reduced ? false : 'hidden'} whileInView="visible" viewport={{ once: true, amount: .12 }}>
-    {ability.map(({ icon: Icon, title, text, state }) => <motion.li className="ability-card" variants={item} key={title}>
+  return <motion.ul className="ability-grid" {...(reduced ? {} : { variants: container, initial: 'hidden' as const, whileInView: 'visible' as const, viewport: { once: true, amount: .12 } })}>
+    {ability.map(({ icon: Icon, title, text, state }) => <motion.li className="ability-card" {...(reduced ? {} : { variants: item })} key={title}>
       <span className="ability-icon" aria-hidden="true"><Icon size={22} strokeWidth={1.5}/></span>
       <h3>{title}</h3>
       <p>{text}</p>

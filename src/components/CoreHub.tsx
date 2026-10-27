@@ -22,6 +22,8 @@ const nodeVar: Variants = {
 
 export function CoreHub() {
   const reduced = useReducedMotion();
+  const lineProps = (i: number) => reduced ? {} : { custom: i, variants: lineVar, initial: 'hidden' as const, whileInView: 'visible' as const, viewport: { once: true, amount: .3 } };
+  const nodeProps = (i: number) => reduced ? {} : { custom: i, variants: nodeVar, initial: 'hidden' as const, whileInView: 'visible' as const, viewport: { once: true, amount: .3 } };
   return (
     <section className="section-dark section-space hub-section" aria-labelledby="jadro">
       <Reveal className="page-width">
@@ -32,7 +34,7 @@ export function CoreHub() {
         <div className="hub-map">
           <svg className="hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
             {nodes.map((n, i) => (
-              <motion.line key={n.label} x1={50} y1={50} x2={n.x} y2={n.y} custom={i} variants={lineVar} initial={reduced ? false : 'hidden'} whileInView="visible" viewport={{ once: true, amount: .3 }} />
+              <motion.line key={n.label} x1={50} y1={50} x2={n.x} y2={n.y} {...lineProps(i)} />
             ))}
           </svg>
           <div className="hub-center">
@@ -40,7 +42,7 @@ export function CoreHub() {
             <span className="mono">sára · jádro</span>
           </div>
           {nodes.map((n, i) => (
-            <motion.span key={n.label} className="hub-node" style={{ left: `${n.x}%`, top: `${n.y}%` }} custom={i} variants={nodeVar} initial={reduced ? false : 'hidden'} whileInView="visible" viewport={{ once: true, amount: .3 }}>{n.label}</motion.span>
+            <motion.span key={n.label} className="hub-node" style={{ left: `${n.x}%`, top: `${n.y}%` }} {...nodeProps(i)}>{n.label}</motion.span>
           ))}
         </div>
         <p className="hub-note">Jedno místo, kde se sejde všechno, co dnes držíte v hlavě.</p>
