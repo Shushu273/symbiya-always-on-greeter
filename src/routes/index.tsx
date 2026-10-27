@@ -39,7 +39,7 @@ function Index() {
       <div className="gold-dust" aria-hidden="true"><i/><i/><i/><i/><i/><i/><i/><i/></div>
       <div className="page-width hero-layout sara-layout">
         <div className="hero-copy">
-          <h1>Tohle je Sára.<br/><span className="gradient-text">Vezme každý<br/>hovor.</span></h1>
+          <h1>Tohle je Sára.<br/><span className="gradient-text">Vezme každý<br/>{' '}hovor.</span></h1>
           <p className="system-status sara-identity"><span className="status-dot"/>ai recepční · nonstop · česky / anglicky</p>
           <p className="hero-description">Zatímco stříháte, operujete nebo řídíte, Sára zvedá telefon, objednává a pošle potvrzení SMS. Ve dne, v noci, o víkendu.</p>
           <div className="hero-actions"><div className="sara-primary"><Button asChild><a href={`tel:${DEMO_GASTRO.tel}`}><Phone size={18}/>Zavolejte Sáře teď</a></Button><span className="mono sara-demo-label">222 760 297 · živé demo</span></div><Button asChild variant="secondary"><a href="#obory">Vyberte svůj obor<ArrowRight size={18}/></a></Button></div>

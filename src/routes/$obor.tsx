@@ -15,8 +15,10 @@ export const Route = createFileRoute("/$obor")({
     if (!o) throw notFound();
     return o;
   },
-  head: ({ loaderData: o }) => ({
-    links: o && industryPhotos[o.slug] ? [{ rel: 'preload', as: 'image', href: industryPhotos[o.slug].src, imageSrcSet: industryPhotos[o.slug].srcSet, imageSizes: '100vw' }] : [],
+  head: ({ loaderData: o }) => {
+    const cover = o ? industryPhotos[o.slug] : undefined;
+    return {
+    links: cover ? [{ rel: 'preload', as: 'image', href: cover.src, imageSrcSet: cover.srcSet, imageSizes: '100vw' }] : [],
     meta: o
       ? [
           { title: o.title }, { name: "description", content: o.description },
@@ -24,7 +26,7 @@ export const Route = createFileRoute("/$obor")({
           { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
         ]
       : [{ title: "Stránka nenalezena | SYMBIYA" }, { name: "robots", content: "noindex" }],
-  }),
+  }; },
   component: OborPage,
 });
 
