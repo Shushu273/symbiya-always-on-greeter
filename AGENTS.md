@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Obor pages render from one template (src/routes/$obor.tsx) fed by src/data/obory.ts; add new obory as data only.
