@@ -4,11 +4,13 @@ import { useEffect, useRef, useState } from 'react';
 import { obory, MAIL, DEMO_GASTRO, type Demo } from '@/data/obory';
 import { Button } from './ui/button';
 import { CursorGlow } from './Effects';
+import { useAudioAvailable } from './AudioDemo';
 export function Logo() {
   return <Link to="/" className="logo" aria-label="symbiya – úvod"><span className="logo-symbol" aria-hidden="true"><i/><i/><i/><i/><i/></span>symbiya<span className="logo-period">.</span></Link>;
 }
 export function Header({ demo }: { demo?: Demo | undefined }) {
   const [open, setOpen] = useState(false);
+  const audioOk = useAudioAvailable();
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const h = (e: MouseEvent) => ref.current && !ref.current.contains(e.target as Node) && setOpen(false);
@@ -18,8 +20,9 @@ export function Header({ demo }: { demo?: Demo | undefined }) {
   }, []);
   return <><CursorGlow/><header className="site-header"><div className="header-inner"><Logo/><nav aria-label="Hlavní navigace">
     {demo && <a className="header-demo" href={`tel:${demo.tel}`}><span className="status-dot"/>{demo.cislo}</a>}
-    <a className="header-link" href="#nabidka">Sára</a>
-    <a className="header-link" href="#nabidka">Sára PRO</a>
+    {audioOk && <Link to="/" hash="ukazka" className="header-link">Ukázka hlasu</Link>}
+    <Link to="/" hash="jak-to-funguje" className="header-link">Jak to funguje</Link>
+    <a className="header-link" href="#nabidka">Ceník</a>
     <div ref={ref} className="relative"><Button variant="ghost" aria-expanded={open} aria-controls="menu-obory" onClick={() => setOpen(v => !v)}>Obory<ChevronDown size={14} className={open ? 'rotate-180' : ''}/></Button>
     {open && <ul id="menu-obory" className="industry-menu glass-panel">{obory.map(o => <li key={o.slug}><Link to="/$obor" params={{ obor: o.slug }} onClick={() => setOpen(false)}>{o.nazev}<ArrowUpRight size={15}/></Link></li>)}</ul>}</div>
     <Button asChild className="header-cta"><a href={`tel:${DEMO_GASTRO.tel}`}><Phone size={14}/>Zavolejte Sáře</a></Button>
