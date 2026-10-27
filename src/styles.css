@@ -356,6 +356,8 @@ main, .site-footer { position: relative; z-index: 1; }
 .answer-call { top: 118px; left: 26px; opacity: 0; transition: opacity .6s; }
 .answer-call .caption-status { color: var(--gold); }
 .answer-call.is-visible { opacity: 1; }
+.sara-call { animation: panel-float 8s ease-in-out infinite alternate; }
+.answer-call { animation-delay: -3s; }
 .sara-call .call-complete { margin-top: 10px; }
 .activity-call { width: 215px; top: -66px; left: 80px; display: flex; align-items: center; gap: 13px; padding: 13px 16px; }
 .activity-call > .mono { font-size: 9px; color: var(--gold); }
@@ -393,6 +395,7 @@ main, .site-footer { position: relative; z-index: 1; }
 .photo-industry-hero .demo-disclaimer { color: var(--foreground); }
 @keyframes sara-zoom { from { transform: scale(1); } to { transform: scale(1.05); } }
 @keyframes gold-drift { from { transform: translateY(0); opacity: .3; } to { transform: translate(12px,-28px); opacity: .85; } }
+@keyframes panel-float { from { transform: translateY(0); } to { transform: translateY(-6px); } }
 @media (max-width: 1100px) and (min-width: 761px) {
   .sara-layout { width: calc(100% - 64px); }
   .sara-layout h1 { font-size: 58px; }
@@ -417,7 +420,7 @@ main, .site-footer { position: relative; z-index: 1; }
   .sara-layout .hero-actions .btn { padding-inline: 14px; font-size: 11px; }
   .sara-demo-label { font-size: 8px; }
   .sara-calls { position: relative; top: auto; left: auto; width: 100%; max-width: 440px; height: 240px; margin-top: 35px; transform: none !important; }
-  .sara-call { width: calc(100% - 18px); padding: 13px 15px; }
+  .sara-call { width: calc(100% - 18px); padding: 13px 15px; animation: none; }
   .sara-call p { font-size: 12px; }
   .answer-call { top: 115px; left: 18px; }
   .activity-call { display: none; }

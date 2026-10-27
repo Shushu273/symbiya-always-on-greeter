@@ -6,6 +6,6 @@
 
 # Sára photo upgrade
 - [x] Download all seven supplied photos and convert 1600/800px WebP variants.
-- [ ] Add photo-backed Sára hero, data-driven floating calls and gold accents.
-- [ ] Add industry photos to homepage rows and industry headers without altering data.
-- [ ] Verify phones, routes, images, mobile layout and reduced motion.
+- [x] Add photo-backed Sára hero, data-driven floating calls and gold accents.
+- [x] Add industry photos to homepage rows and industry headers without altering data.
+- [x] Verify phones, routes, images, mobile layout and reduced motion.
