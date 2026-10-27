@@ -1,6 +1,11 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { Header, Footer } from "@/components/Layout";
 import { Pilot, Faq, Zaver } from "@/components/Shared";
+import { ArrowUpRight, Phone, ArrowRight } from "lucide-react";
+import { VoiceSphere } from "@/components/VoiceSphere";
+import { LiveChat } from "@/components/LiveChat";
+import { Reveal } from "@/components/Effects";
+import { Button } from "@/components/ui/button";
 import { najdiObor, mailUkazka } from "@/data/obory";
 
 export const Route = createFileRoute("/$obor")({
@@ -23,73 +28,15 @@ export const Route = createFileRoute("/$obor")({
 
 function OborPage() {
   const o = Route.useLoaderData();
-  return (
-    <>
-      <Header />
-      <main>
-        <section className="section-dark">
-          <div className="mx-auto max-w-6xl px-5 pb-20 pt-12 md:pt-20">
-            <p className="text-haze/60">{o.nazev} · {o.podnazev}</p>
-            <h1 className="mt-4 max-w-4xl text-6xl sm:text-8xl">{o.nadpis}</h1>
-            <p className="mt-6 max-w-2xl text-lg text-haze/80 sm:text-xl">{o.podnadpis}</p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              {o.demo ? (
-                <>
-                  <a href={`tel:${o.demo.tel}`} className="btn btn-glow">Zavolat demo {o.demo.cislo}</a>
-                  <a href={mailUkazka(o.nazev)} className="btn btn-line">Domluvit ukázku</a>
-                </>
-              ) : (
-                <a href={mailUkazka(o.nazev)} className="btn btn-glow">Domluvit ukázku pro váš obor</a>
-              )}
-            </div>
-            {o.demo && <p className="mt-4 text-sm text-haze/60">Ozve se AI recepční smyšleného podniku {o.demo.firma}.</p>}
-          </div>
-        </section>
-
-        <section className="section-light" aria-labelledby="hovory">
-          <div className="mx-auto max-w-6xl px-5 py-20">
-            <h2 id="hovory" className="mb-10 text-5xl sm:text-6xl">Typické hovory</h2>
-            <ul className="divide-y border-y">
-              {o.hovory.map((h) => (
-                <li key={h.dotaz} className="grid gap-2 py-6 md:grid-cols-2 md:gap-10">
-                  <p className="font-display text-2xl font-semibold sm:text-3xl">{h.dotaz}</p>
-                  <p className="flex gap-3 text-lg"><span aria-hidden className="dot-glow mt-2 shrink-0" />{h.akce}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <section className="section-dark" aria-labelledby="prepis">
-          <div className="mx-auto max-w-2xl px-5 py-20">
-            <h2 id="prepis" className="mb-10 text-5xl sm:text-6xl">Jak to zní</h2>
-            <ol className="space-y-3">
-              {o.prepis.map((r, i) => (
-                <li key={i} className={`flex ${r.kdo === "klient" ? "justify-end" : ""}`}>
-                  <div className={`max-w-[85%] rounded-2xl px-4 py-3 ${r.kdo === "klient" ? "bg-phone text-ink" : "bg-ink-2 text-haze"}`}>
-                    <span className="block text-xs opacity-70">{r.kdo === "klient" ? "Volající" : "Recepční"}</span>
-                    {r.text}
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-
-        <section className="section-light" aria-labelledby="potrebuje">
-          <div className="mx-auto grid max-w-6xl gap-10 px-5 py-20 md:grid-cols-2">
-            <h2 id="potrebuje" className="text-5xl sm:text-6xl">Co od vás potřebuje</h2>
-            <ul className="space-y-4 text-xl">
-              {o.potrebuje.map((p) => <li key={p} className="border-b pb-4">{p}</li>)}
-            </ul>
-          </div>
-        </section>
-
-        <Pilot />
-        <Faq />
-        <Zaver demo={o.demo} />
-      </main>
-      <Footer demo={o.demo} />
-    </>
-  );
+  return <><Header demo={o.demo}/><main>
+    <section className="section-dark industry-hero"><div className="page-width industry-hero-layout">
+      <div className="industry-hero-copy"><p className="industry-eyebrow">{o.nazev} · {o.podnazev}</p><h1>{o.nadpis}</h1><p className="hero-description">{o.podnadpis}</p>
+        {o.demo ? <><div className="demo-console glass-panel"><span className="system-status"><span className="status-dot"/>linka aktivní</span><a href={`tel:${o.demo.tel}`} className="demo-number">{o.demo.cislo}</a><div className="hero-actions"><Button asChild><a href={`tel:${o.demo.tel}`}><Phone size={17}/>Zavolat demo</a></Button><Button asChild variant="secondary"><a href={mailUkazka(o.nazev)}>Domluvit ukázku<ArrowUpRight size={17}/></a></Button></div></div><p className="demo-disclaimer">Ozve se AI recepční smyšleného podniku {o.demo.firma}.</p></> : <div className="hero-actions"><Button asChild><a href={mailUkazka(o.nazev)}>Domluvit ukázku pro váš obor<ArrowUpRight size={17}/></a></Button></div>}
+      </div><div className="industry-voice"><VoiceSphere small/><span className="system-status"><span className="status-dot"/>živě · 24/7</span></div>
+    </div></section>
+    <section className="section-dark section-space" aria-labelledby="hovory"><Reveal className="page-width"><div className="section-heading"><h2 id="hovory">Typické hovory<span className="text-primary">.</span></h2><span className="section-marker" aria-hidden="true">↘</span></div><ul className="typical-calls">{o.hovory.map(h => <li key={h.dotaz}><p>{h.dotaz}</p><ArrowRight size={18} aria-hidden="true"/><p>{h.akce}</p></li>)}</ul></Reveal></section>
+    <section className="section-dark section-space" aria-labelledby="prepis"><div className="page-width transcript-layout"><Reveal><h2 id="prepis">Jak to zní<span className="text-primary">.</span></h2><div className="transcript-wave" aria-hidden="true">{Array.from({length: 25}, (_, i) => <i key={i}/>)}</div></Reveal><div className="glass-panel transcript-panel"><LiveChat key={o.slug} lines={o.prepis}/></div></div></section>
+    <section className="section-dark section-space" aria-labelledby="potrebuje"><Reveal className="page-width requirements-layout"><h2 id="potrebuje">Co od vás potřebuje<span className="text-primary">.</span></h2><ul>{o.potrebuje.map(p => <li key={p}><span className="requirement-mark" aria-hidden="true">+</span>{p}</li>)}</ul></Reveal></section>
+    <Pilot/><Faq/><Zaver demo={o.demo}/>
+  </main><Footer demo={o.demo}/></>;
 }

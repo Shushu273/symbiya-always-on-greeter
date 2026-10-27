@@ -10,3 +10,6 @@
 <!-- LOVABLE:END -->
 
 - Obor pages render from one template (src/routes/$obor.tsx) fed by src/data/obory.ts; add new obory as data only.
+- Shared visual primitives (Button, Reveal, VoiceSphere and LiveChat) keep the homepage and data-driven industry pages consistent without duplicating industry data.
+- The voice sphere uses a lazy-loaded 2D particle canvas with at most 1150 particles, capped pixel ratio, visibility pausing and a static reduced-motion mode to avoid a heavy 3D runtime.
+- All visual colors and effects are defined as semantic global CSS tokens; feature components reference those tokens rather than independent color values.
