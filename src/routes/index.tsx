@@ -47,8 +47,8 @@ function Index() {
           <h1>Tohle je Sára.<br/><span className="gradient-text">Vezme každý<br/>{' '}hovor.</span></h1>
           <p className="system-status sara-identity"><span className="status-dot"/>ai recepční · nonstop · česky / anglicky</p>
           <p className="hero-description">Zatímco stříháte, operujete nebo řídíte, Sára zvedá telefon, objednává a pošle potvrzení SMS. Ve dne, v noci, o víkendu.</p>
-          <div className="hero-actions"><div className="sara-primary"><Button asChild><a href={`tel:${DEMO_GASTRO.tel}`}><Phone size={18}/>Zavolejte Sáře teď</a></Button><span className="mono sara-demo-label">222 760 297 · živé demo</span></div><Button asChild variant="secondary"><a href="#obory">Vyberte svůj obor<ArrowRight size={18}/></a></Button></div>
           <a href="#nabidka" className="offer-tag">zaváděcí nabídka · −50 % pro prvních 10 firem<ArrowRight size={11}/></a>
+          <div className="hero-actions"><div className="sara-primary"><Button asChild><a href={`tel:${DEMO_GASTRO.tel}`}><Phone size={18}/>Zavolejte Sáře teď</a></Button><span className="mono sara-demo-label">222 760 297 · živé demo</span></div><Button asChild variant="secondary"><a href="#obory">Vyberte svůj obor<ArrowRight size={18}/></a></Button></div>
         </div><CallFeed/>
       </div>
       <div className="hero-baseline page-width" aria-hidden="true"><span><i/>nonstop</span><span>↓</span><span>symbiya</span></div>
