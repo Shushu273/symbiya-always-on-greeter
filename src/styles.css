@@ -538,7 +538,7 @@ main, .site-footer { position: relative; z-index: 1; }
   .offer-panel h2 { font-size: 42px; }
 }
 @media (max-width: 760px) {
-  .offer-tag { font-size: 9px; padding: 8px 12px; margin-top: 20px; }
+  .offer-tag { font-size: 9px; padding: 8px 12px; margin-bottom: 18px; }
   .pain-row { grid-template-columns: 1fr; gap: 12px; padding-block: 28px; }
   .pain-row h3 { font-size: 21px; }
   .pain-cost, .pain-fix { font-size: 13px; }
