@@ -32,7 +32,7 @@ export function CoreHub() {
         <div className="hub-map">
           <svg className="hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
             {nodes.map((n, i) => (
-              <motion.line key={n.label} x1={50} y1={50} x2={n.x} y2={n.y} vectorEffect="non-scaling-stroke" custom={i} variants={lineVar} initial={reduced ? false : 'hidden'} whileInView="visible" viewport={{ once: true, amount: .3 }} />
+              <motion.line key={n.label} x1={50} y1={50} x2={n.x} y2={n.y} custom={i} variants={lineVar} initial={reduced ? false : 'hidden'} whileInView="visible" viewport={{ once: true, amount: .3 }} />
             ))}
           </svg>
           <div className="hub-center">

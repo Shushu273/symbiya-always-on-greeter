@@ -482,7 +482,7 @@ main, .site-footer { position: relative; z-index: 1; }
 .pain-fix svg { flex-shrink: 0; margin-top: 4px; }
 .hub-map { position: relative; height: 540px; margin-top: 10px; }
 .hub-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
-.hub-lines line { stroke: color-mix(in srgb, var(--gold) 50%, transparent); stroke-width: 1; }
+.hub-lines line { stroke: color-mix(in srgb, var(--gold) 50%, transparent); stroke-width: .12; }
 .hub-center { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 2; }
 .hub-center img { width: 150px; height: 150px; object-fit: cover; border-radius: 24px; border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent); box-shadow: 0 0 55px color-mix(in srgb, var(--gold) 20%, transparent); }
 .hub-center .mono { display: block; margin-top: 13px; color: var(--gold); font-size: 10px; }
