@@ -472,7 +472,7 @@ main, .site-footer { position: relative; z-index: 1; }
 }
 
 /* Sales upgrade */
-.offer-tag { display: inline-flex; align-items: center; gap: 8px; color: var(--gold); font-family: var(--font-mono); font-size: 10px; letter-spacing: .03em; border: 1px solid color-mix(in srgb, var(--gold) 32%, transparent); border-radius: 999px; padding: 9px 15px; margin-top: 26px; background: color-mix(in srgb, var(--gold) 7%, transparent); transition: border-color .3s, box-shadow .3s; }
+.offer-tag { display: inline-flex; align-items: center; gap: 8px; color: var(--gold); font-family: var(--font-mono); font-size: 10px; letter-spacing: .03em; border: 1px solid color-mix(in srgb, var(--gold) 32%, transparent); border-radius: 999px; padding: 9px 15px; margin-bottom: 24px; background: color-mix(in srgb, var(--gold) 7%, transparent); transition: border-color .3s, box-shadow .3s; }
 .offer-tag:hover { border-color: var(--gold); box-shadow: 0 0 20px color-mix(in srgb, var(--gold) 22%, transparent); }
 .pain-list { border-top: 1px solid var(--border); list-style: none; margin: 0; padding: 0; }
 .pain-row { display: grid; grid-template-columns: 1.05fr .95fr 1fr; gap: 36px; align-items: center; padding-block: 36px; border-bottom: 1px solid var(--border); }
