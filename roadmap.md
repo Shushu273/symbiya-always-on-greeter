@@ -16,3 +16,9 @@
 - [x] Sekce Nabídka (cena 4 990 → 2 495 Kč, slotsLeft v src/data/offer.ts) místo Pilotu; FAQ +3 otázky; Závěr „Rezervovat místo za polovinu“.
 - [x] Oborové stránky: Nabídka + kalkulačka s předvolbou oboru nad patičku.
 - [x] Testy nabídky, build, mobilní layout a reduced-motion kontrola.
+
+# Dva produkty: Sára a Sára PRO
+- [x] Sekce „Vyberte si Sáru.“ – dva sloupce (Sára 2 495 Kč intro / Sára PRO od 14 990 Kč), ceny z offer.ts.
+- [x] Hero mono odkazy „sára · sára pro“, navigace Sára / Sára PRO / Obory / Zavolejte Sáře.
+- [x] Kalkulačka s poznámkou PRO, FAQ otázka Sára vs PRO, oborové stránky se stejnou sekcí.
+- [x] Testy (16), build OK, mobil bez přetečení, reduced-motion statické.

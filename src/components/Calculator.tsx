@@ -91,6 +91,7 @@ export function Calculator({ preset }: { preset?: string | undefined }) {
               <p className="calc-line"><strong className="calc-roi">{fmt.format(roiA / 10)} ×</strong></p>
             </div>
             <p className="calc-note">Modelový výpočet z vašich čísel, ne garance.</p>
+            <p className="calc-pro-note">Sára PRO od {fmt.format(OFFER.pricePro)} Kč / měsíc</p>
             <Button asChild><a href={mailPilot}>Chci to zkusit na své firmě<ArrowUpRight size={17} /></a></Button>
           </div>
         </div>

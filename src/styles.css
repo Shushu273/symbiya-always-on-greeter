@@ -514,30 +514,38 @@ main, .site-footer { position: relative; z-index: 1; }
 .calc-line strong.calc-roi { color: var(--gold); }
 .calc-note { font-size: 11px; color: var(--muted-foreground); line-height: 1.7; }
 .calc-output .btn { align-self: flex-start; margin-top: 4px; }
-.offer-panel { position: relative; padding: 56px; border-radius: 14px; background: var(--glass-background); border: 1px solid transparent; background-image: linear-gradient(var(--panel), var(--panel)), linear-gradient(130deg, color-mix(in srgb, var(--gold) 60%, transparent), color-mix(in srgb, var(--gold) 12%, transparent) 45%, color-mix(in srgb, var(--gold) 42%, transparent)); background-origin: border-box; background-clip: padding-box, border-box; backdrop-filter: blur(18px); box-shadow: 0 0 70px -20px color-mix(in srgb, var(--gold) 20%, transparent); }
-.offer-head { display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; }
-.offer-badge { font-family: var(--font-mono); font-size: 10px; letter-spacing: .05em; color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent); border-radius: 999px; padding: 8px 14px; background: color-mix(in srgb, var(--gold) 7%, transparent); }
-.offer-slots { display: flex; align-items: center; gap: 13px; color: var(--muted-foreground); font-size: 10px; }
+.offer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 46px; }
+.offer-panel { position: relative; padding: 50px 46px; border-radius: 14px; background: var(--glass-background); border: 1px solid var(--border); backdrop-filter: blur(18px); display: flex; flex-direction: column; }
+.offer-pro { border-color: color-mix(in srgb, var(--gold) 45%, transparent); box-shadow: 0 0 60px -16px color-mix(in srgb, var(--gold) 26%, transparent); }
+.offer-pro-badge { position: absolute; top: 24px; right: 24px; font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em; color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent); border-radius: 999px; padding: 6px 12px; background: color-mix(in srgb, var(--gold) 9%, transparent); }
+.offer-panel h3 { font-size: 36px; }
+.offer-lead { color: var(--muted-foreground); font-size: 15px; line-height: 1.7; margin-top: 10px; }
+.offer-badge { align-self: flex-start; font-family: var(--font-mono); font-size: 10px; letter-spacing: .05em; color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent); border-radius: 999px; padding: 8px 14px; margin-top: 18px; background: color-mix(in srgb, var(--gold) 7%, transparent); }
+.offer-slots { display: flex; align-items: center; gap: 13px; color: var(--muted-foreground); font-size: 10px; margin-top: 12px; }
 .offer-bar { width: 110px; height: 3px; border-radius: 2px; background: var(--border); overflow: hidden; }
 .offer-bar i { display: block; height: 100%; background: var(--gold); box-shadow: 0 0 8px color-mix(in srgb, var(--gold) 60%, transparent); }
-.offer-panel h2 { font-size: 52px; margin-top: 34px; }
-.offer-price { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-top: 18px; }
+.offer-price { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-top: 22px; }
 .offer-price s { color: var(--muted-foreground); font-size: 19px; font-family: var(--font-mono); }
 .offer-price strong { color: var(--gold); font-family: var(--font-mono); font-size: 34px; font-weight: 600; }
 .offer-price span { color: var(--muted-foreground); font-size: 13px; }
-.offer-checklist { list-style: none; margin: 36px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 15px 34px; }
+.offer-checklist { list-style: none; margin: 30px 0 36px; padding: 0; display: grid; grid-template-columns: 1fr; gap: 14px; flex: 1; }
 .offer-checklist li { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; line-height: 1.6; }
 .offer-checklist svg { color: var(--gold); flex-shrink: 0; margin-top: 3px; }
-.offer-pilot-note { color: var(--muted-foreground); font-size: 14px; line-height: 1.8; margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--border); }
-.offer-actions { margin-top: 26px; }
-.offer-custom { font-size: 12px; color: var(--muted-foreground); margin-top: 24px; line-height: 1.7; }
+.offer-panel .btn { align-self: flex-start; }
+.offer-pilot-note { color: var(--muted-foreground); font-size: 14px; line-height: 1.8; margin-top: 36px; text-align: center; }
+.header-link { font-family: var(--font-mono); font-size: 11px; letter-spacing: .04em; color: var(--muted-foreground); padding: 8px 10px; border-radius: 8px; transition: color .25s; }
+.header-link:hover { color: var(--gold); }
+.hero-products { font-size: 11px; letter-spacing: .05em; color: var(--muted-foreground); margin: 16px 0 20px; }
+.hero-products a { color: var(--foreground); border-bottom: 1px solid color-mix(in srgb, var(--gold) 45%, transparent); transition: color .25s, border-color .25s; }
+.hero-products a:hover { color: var(--gold); border-color: var(--gold); }
+.calc-pro-note { font-size: 11px; color: var(--muted-foreground); font-family: var(--font-mono); }
 @media (max-width: 1100px) {
   .pain-row { grid-template-columns: 1fr 1fr; gap: 18px 30px; }
   .pain-fix { grid-column: 1 / -1; }
   .calc-panel { grid-template-columns: 1fr; gap: 40px; padding: 34px; }
   .calc-output { border-left: 0; padding-left: 0; border-top: 1px solid var(--border); padding-top: 34px; }
+  .offer-grid { grid-template-columns: 1fr; }
   .offer-panel { padding: 40px; }
-  .offer-panel h2 { font-size: 42px; }
 }
 @media (max-width: 760px) {
   .offer-tag { font-size: 9px; padding: 8px 12px; margin-bottom: 18px; }
@@ -552,11 +560,10 @@ main, .site-footer { position: relative; z-index: 1; }
   .hub-note { font-size: 13px; margin-top: 26px; }
   .calc-panel { padding: 24px 18px; }
   .calc-loss { font-size: 32px; }
-  .offer-panel { padding: 28px 20px; }
-  .offer-panel h2 { font-size: 34px; margin-top: 26px; }
+  .offer-panel { padding: 30px 22px; }
+  .offer-panel h3 { font-size: 28px; }
   .offer-price strong { font-size: 27px; }
-  .offer-checklist { grid-template-columns: 1fr; gap: 13px; }
-  .offer-head { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .header-link { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .offer-tag:hover { box-shadow: none; }
