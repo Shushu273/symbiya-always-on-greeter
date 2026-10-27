@@ -604,7 +604,7 @@ main, .site-footer { position: relative; z-index: 1; }
 @media (width < 768px) {
   .sara-hero { height: auto; min-height: 0; justify-content: flex-start; }
   .sara-visual { position: relative; inset: auto; flex: none; width: 100%; aspect-ratio: 4 / 5; max-height: 70vh; overflow: hidden; z-index: 0; }
-  .sara-hero .sara-photo { height: 100%; z-index: 0; object-position: 78% 25%; animation: none; transform: scale(2); transform-origin: 78% 15%; }
+  .sara-hero .sara-photo { height: 100%; z-index: 0; object-position: 78% 25%; animation: none; transform: scale(1.8); transform-origin: 78% 15%; }
   .sara-hero .photo-shade { height: 100%; z-index: 1; background: linear-gradient(0deg, var(--background), transparent 28%); }
   .sara-hero .gold-dust { display: none; }
   .sara-hero .sara-layout { position: static; display: block; width: calc(100% - 40px); flex: none; padding-block: 24px; }
