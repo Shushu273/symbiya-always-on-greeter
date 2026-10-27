@@ -13,7 +13,7 @@ export function usePrefersReducedMotion() {
 }
 export function Reveal({ children, className = '' }: { children: ReactNode; className?: string }) {
   const reduced = usePrefersReducedMotion();
-  return <motion.div className={className} initial={reduced ? false : { opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .12 }} transition={{ duration: .65 }}>{children}</motion.div>;
+  return <motion.div className={`reveal ${className}`} initial={reduced ? false : { opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .12 }} transition={{ duration: .65 }}>{children}</motion.div>;
 }
 export function CursorGlow() {
   const ref = useRef<HTMLDivElement>(null);

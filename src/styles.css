@@ -318,6 +318,7 @@ main, .site-footer { position: relative; z-index: 1; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .curve-line { stroke-dashoffset: 0; }
   .cursor-glow { display: none; }
+  .reveal, .pain-row, .ability-card, .hub-node, .hub-lines line { opacity: 1 !important; transform: none !important; }
 }
 
 .button-small { min-height: 36px; padding: 8px 13px; }
