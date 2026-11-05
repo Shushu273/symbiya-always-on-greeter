@@ -782,3 +782,16 @@ main, .site-footer { position: relative; z-index: 1; }
 .omni-wa { background: var(--wa-bg); border-radius: 12px; padding: 14px 12px; border-top: 0; margin-top: auto; }
 .omni-wa .wa-out { max-width: 75%; }
 @media (max-width: 960px) { .omni-grid { grid-template-columns: 1fr; } }
+
+/* Auto */
+.auto-pains { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.auto-fix-h { font-size: clamp(28px, 3.6vw, 44px); line-height: 1.1; letter-spacing: -.04em; margin: 0 0 28px; }
+.auto-fix-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 22px; }
+.auto-fix-list li { display: flex; gap: 16px; }
+.auto-fix-list h3 { font-size: 18px; margin: 2px 0 6px; }
+.auto-fix-list p { color: var(--muted-foreground); font-size: 13px; line-height: 1.7; margin: 0; }
+.auto-fix-list .ability-state { border-top: 0; padding-top: 10px; }
+.auto-fix .wa-btn { display: flex; align-items: center; justify-content: center; gap: 6px; }
+.auto-paid { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; margin-top: 12px; }
+.auto-paid .mono { color: var(--wa-muted); font-size: 10px; }
+@media (max-width: 700px) { .auto-pains { grid-template-columns: 1fr; } }
