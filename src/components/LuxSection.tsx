@@ -1,24 +1,25 @@
-import { BadgeCheck, Car, Clock3, CreditCard, Globe, IdCard, MapPin, ShieldAlert } from 'lucide-react';
+import { BadgeCheck, Car, Clock3, CreditCard, Filter, Gauge, LockKeyhole, ShieldAlert, Sparkles } from 'lucide-react';
 import { Reveal } from './Effects';
 
 const PAINS = [
-  { icon: Clock3, title: 'Poptávka ve 23:00 počká do rána. Klient ne.', text: 'Turista v hotelu nebo podnikatel před eventem píše večer a chce auto ráno. Kdo odpoví první, ten půjčuje.' },
-  { icon: ShieldAlert, title: 'Rezervace bez kauce je riziko za statisíce', text: 'Bez složené kauce a ověřených dokladů si auto za miliony nikdo rozumný nepůjčí. Ruční vyřizování ale trvá a klienta odradí.' },
-  { icon: Globe, title: 'Polovina klientů nemluví česky', text: 'Zprávy chodí anglicky, německy, rusky. A v každé jsou stejné otázky na cenu, nájezd, věk a pojištění.' },
-  { icon: MapPin, title: 'Přistavení, svatby, eventy', text: 'Kam, kdy, s řidičem, nebo bez? Každá domluva je série zpráv, kterou musí někdo hlídat i o víkendu.' },
+  { icon: Filter, title: 'Hodiny vysvětlování lidem, kteří nikdy nezaplatí', text: 'Velkou část zpráv tvoří zvědavci: jak je auto rychlé, kolik stojí hodinová projížďka, jestli to jde bez kauce. Váš čas je na to příliš cenný.' },
+  { icon: Clock3, title: 'Pomalá odpověď zabíjí prémiový dojem', text: 'Kdo chce zítra zaplatit desítky tisíc za víkend nebo svatbu, čeká okamžitý servis. Odpověď za pět hodin znamená, že už jednal s konkurencí.' },
+  { icon: ShieldAlert, title: 'Vysoké zálohy a kauce přes chat', text: 'U sportovních vozů jde o desítky až stovky tisíc. Domlouvání přes zprávy a e-maily je neohrabané a klient si to na poslední chvíli rozmyslí.' },
+  { icon: Gauge, title: 'Pořád dokola stejné detaily', text: '„Jaký je tam motor?“ „Můžu s ním do zahraničí?“ „Jaký je denní limit kilometrů a kolik stojí nadlimit?“ Odpovídat stále znovu ubírá energii celému týmu.' },
 ];
 
 const FIX = [
-  { icon: Globe, title: 'Odpoví hned, i anglicky', text: 'Na WhatsAppu, Instagramu i po telefonu, nonstop. Ověří dostupnost vozu a řekne cenu a podmínky podle vašeho ceníku.', state: 'whatsapp · en · 23:11' },
-  { icon: IdCard, title: 'Doklady předem', text: 'Před potvrzením si vyžádá řidičský průkaz a doklad totožnosti a ohlídá podmínky věku a praxe, které jí nastavíte.', state: 'řidičák nahrán · ověřte' },
-  { icon: CreditCard, title: 'Kauce dřív, než vyjedete', text: 'Pošle odkaz na složení kauce. Rezervace platí až po jejím složení, do té doby auto neblokuje.', state: 'kauce 50 000 Kč · složena' },
-  { icon: Car, title: 'Přistavení bez telefonování', text: 'Domluví místo a čas přistavení, zapíše je do rezervace a den předem klientovi připomene.', state: 'so 9:00 · hotel, Malá Strana' },
+  { icon: Sparkles, title: 'Reprezentace na úrovni, nonstop', text: 'Kultivovaný tón odpovídající prémiovému segmentu, česky i anglicky. Okamžitě na Instagramu, WhatsAppu, e-mailu i po telefonu o půlnoci.', state: 'whatsapp · en · 23:11' },
+  { icon: Filter, title: 'Filtr na seriózní zájemce', text: 'Zná vaše pravidla: minimální věk, praxe, doklady, výše kauce. Kdo je nesplní, zdvořile se dozví proč. K vám se dostanou jen skuteční klienti.', state: 'nesplňuje věk · zdvořile odmítnuto' },
+  { icon: Car, title: 'Zná každý detail vašeho fleetu', text: 'Výbavu, limity kilometrů, ceník i podmínky pro zahraničí. Doporučí vhodný vůz pro svatbu, byznys cestu nebo víkendový zážitek.', state: 'svatba · bílé sedan · s řidičem' },
+  { icon: CreditCard, title: 'Záloha a kauce bez kompromisů', text: 'Po potvrzení termínu pošle zabezpečený odkaz na platbu. Bez připsané platby se rezervace nedokončí a vůz se neblokuje na dobré slovo.', state: 'kauce 50 000 Kč · složena' },
+  { icon: LockKeyhole, title: 'Diskrétní jedna karta klienta', text: 'Celá historie napříč kanály u jednoho klienta, včetně dokladů a plateb. Před předáním vozu víte všechno, co potřebujete.', state: 'instagram + whatsapp + hovor → 1 karta' },
 ];
 
 export function LuxSection() {
   return <>
     <section className="section-dark section-space" aria-labelledby="lux-pain-h"><div className="page-width">
-      <Reveal><div className="section-heading"><div><h2 id="lux-pain-h">U luxusních aut rozhoduje rychlost a jistota<span className="text-primary">.</span></h2><p className="ability-sub">Jeden propadlý víkend je pro vás desítky tisíc. Jedna nevybraná kauce může být mnohem víc.</p></div><span className="section-marker" aria-hidden="true">↘</span></div></Reveal>
+      <Reveal><div className="section-heading"><div><h2 id="lux-pain-h">Kde prémiové půjčovny ztrácejí čas a peníze<span className="text-primary">.</span></h2><p className="ability-sub">Ztracené poptávky, zbytečné hovory a nezaplacené kauce. Jeden propadlý víkend jsou desítky tisíc.</p></div><span className="section-marker" aria-hidden="true">↘</span></div></Reveal>
       <ul className="ability-grid auto-pains">
         {PAINS.map(({ icon: Icon, title, text }) => <li className="ability-card" key={title}><span className="ability-icon" aria-hidden="true"><Icon size={22} strokeWidth={1.5}/></span><h3>{title}</h3><p>{text}</p></li>)}
       </ul>
@@ -26,7 +27,7 @@ export function LuxSection() {
 
     <section className="section-dark section-space" aria-labelledby="lux-fix-h"><div className="page-width proof-layout auto-fix">
       <div>
-        <Reveal><h2 id="lux-fix-h" className="auto-fix-h">Vy předáváte klíčky. Zbytek vyřídí Sára<span className="text-primary">.</span></h2></Reveal>
+        <Reveal><h2 id="lux-fix-h" className="auto-fix-h">Pětihvězdičkový servis od první zprávy po předání klíčků<span className="text-primary">.</span></h2></Reveal>
         <ul className="auto-fix-list">
           {FIX.map(({ icon: Icon, title, text, state }) => <li key={title}><span className="ability-icon" aria-hidden="true"><Icon size={20} strokeWidth={1.5}/></span><div><h3>{title}</h3><p>{text}</p><span className="ability-state"><i className="status-dot" aria-hidden="true"/>{state}</span></div></li>)}
         </ul>
