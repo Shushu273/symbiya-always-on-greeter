@@ -621,3 +621,38 @@ main, .site-footer { position: relative; z-index: 1; }
   .sara-hero .sara-layout { width: calc(100% - 28px); }
   .sara-layout h1 { font-size: 37px; }
 }
+
+/* Jedno místo: IG, FB, WhatsApp, Sára */
+.inbox-panel { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); overflow: hidden; }
+.inbox-feed { list-style: none; margin: 0; padding: 0; border-right: 1px solid var(--border); }
+.inbox-item { display: flex; flex-direction: column; gap: 7px; width: 100%; text-align: left; padding: 16px 18px; border: 0; border-bottom: 1px solid var(--border); background: transparent; color: inherit; cursor: pointer; transition: background .25s ease; }
+.inbox-item:hover { background: color-mix(in srgb, var(--foreground) 3%, transparent); }
+.inbox-item.is-active { background: color-mix(in srgb, var(--primary) 7%, transparent); box-shadow: inset 2px 0 0 var(--primary); }
+.inbox-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.inbox-tags { justify-content: flex-start; }
+.inbox-time { color: var(--muted-foreground); font-size: 11px; }
+.inbox-text { color: var(--muted-foreground); font-size: 13px; line-height: 1.55; }
+.inbox-chip { display: inline-flex; align-items: center; gap: 6px; padding: 2px 9px; border-radius: 999px; border: 1px solid currentColor; font-family: var(--font-mono); font-size: 10px; line-height: 1.6; }
+.inbox-chip i { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+.ch-ig { color: #F27AB0; } .ch-fb { color: #7AA7FF; } .ch-wa { color: #4ADE80; } .ch-sara { color: var(--primary); }
+.inbox-status { font-family: var(--font-mono); font-size: 10px; padding: 2px 8px; border-radius: 6px; }
+.inbox-status.is-done { color: var(--success); background: color-mix(in srgb, var(--success) 10%, transparent); }
+.inbox-status.is-handoff { color: var(--gold); background: color-mix(in srgb, var(--gold) 12%, transparent); }
+.inbox-detail { padding: 22px 24px; min-height: 420px; }
+.inbox-meta { display: flex; align-items: center; gap: 8px; color: var(--muted-foreground); font-size: 11px; margin-bottom: 16px; }
+.inbox-bubble { max-width: 86%; padding: 12px 15px; border-radius: 12px; font-size: 14px; line-height: 1.6; margin-bottom: 10px; }
+.inbox-bubble.is-client { background: color-mix(in srgb, var(--foreground) 6%, transparent); border-top-left-radius: 4px; }
+.inbox-bubble.is-sara { margin-left: auto; background: color-mix(in srgb, var(--primary) 10%, transparent); border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent); border-top-right-radius: 4px; }
+.inbox-bubble.is-sara .mono { display: block; color: var(--primary); font-size: 10px; margin-bottom: 4px; }
+.inbox-handoff { font-size: 12px; color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent); background: color-mix(in srgb, var(--gold) 8%, transparent); border-radius: 8px; padding: 9px 12px; margin: 4px 0 12px; }
+.inbox-card { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 18px; margin: 18px 0 0; padding-top: 16px; border-top: 1px solid var(--border); }
+.inbox-card dt { font-family: var(--font-mono); font-size: 10px; color: var(--muted-foreground); margin-bottom: 4px; }
+.inbox-card dd { margin: 0; font-size: 13px; }
+.inbox-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.inbox-extra { margin-top: 28px; }
+@media (max-width: 860px) {
+  .inbox-panel { grid-template-columns: 1fr; }
+  .inbox-feed { border-right: 0; border-bottom: 1px solid var(--border); }
+  .inbox-detail { min-height: 0; padding: 18px 16px; }
+  .inbox-bubble { max-width: 100%; }
+}

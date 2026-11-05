@@ -14,6 +14,7 @@ import { CoreHub } from "@/components/CoreHub";
 import { Calculator } from "@/components/Calculator";
 import { Offer } from "@/components/Offer";
 import { AudioDemo } from "@/components/AudioDemo";
+import { OneInbox } from "@/components/OneInbox";
 
 const title = "SYMBIYA – AI recepční nonstop pro malé podniky";
 const description = "AI recepční, která vezme každý hovor a odpoví na každou zprávu. Ve dne, v noci, o víkendu. Pro salony (barber, tetování, kosmetika), kliniky, řemeslníky, dopravu i gastro.";
@@ -65,6 +66,7 @@ function Index() {
     </section>
     <PainRows/>
     <section className="section-dark section-space ability-section" aria-labelledby="sara-umi"><div className="page-width"><Reveal><div className="section-heading ability-heading"><div><h2 id="sara-umi">Víc než zvedání telefonu<span className="text-primary">.</span></h2><p className="ability-sub">Sára hovor nejen vezme, ale dotáhne do konce – a druhý den vám řekne, co se dělo.</p></div><span className="section-marker" aria-hidden="true">↘</span></div></Reveal><AbilityGrid/><p className="ability-note">Napojení na kalendář a WhatsApp nastavíme při nasazení podle toho, co už používáte.</p></div></section>
+    <OneInbox/>
     <CoreHub/>
     <Calculator/>
     <section id="obory" className="section-dark section-space industry-section" aria-labelledby="obory-h"><div className="page-width"><Reveal><div className="section-heading"><h2 id="obory-h">Vyberte svůj obor<span className="text-primary">.</span></h2><span className="section-marker" aria-hidden="true">↘</span></div></Reveal>
