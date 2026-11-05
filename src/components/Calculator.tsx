@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { Button } from './ui/button';
 import { Reveal, usePrefersReducedMotion } from './Effects';
-import { OFFER, ZAKAZKA_PRESETS, mailNasazeni, monthlyLoss, monthlyProfit, presetForObor, setupPaybackMonths } from '@/data/offer';
+import { OFFER, ZAKAZKA_PRESETS, mailNasazeni, monthlyLoss, monthlyProfit, noShowLoss, presetForObor, setupPaybackMonths } from '@/data/offer';
 
 const fmt = new Intl.NumberFormat('cs-CZ');
 const fmtKc = (n: number) => `${fmt.format(n)} Kč`;
@@ -35,7 +35,11 @@ export function Calculator({ preset }: { preset?: string | undefined }) {
   const [value, setValue] = useState(() => presetForObor(preset ?? '') ?? 700);
   const [active, setActive] = useState<string | undefined>(() => (presetForObor(preset ?? '') ? preset : undefined));
 
-  const loss = monthlyLoss(missed, share, value);
+  const [noShows, setNoShows] = useState(() => (preset === 'stavebnictvi' || preset === 'doprava' ? 0 : 4));
+  const [rescued, setRescued] = useState(50);
+  const callLoss = monthlyLoss(missed, share, value);
+  const chairLoss = noShowLoss(noShows, rescued, value);
+  const loss = callLoss + chairLoss;
   const profit = monthlyProfit(loss);
   const months = setupPaybackMonths(loss);
 
@@ -49,7 +53,7 @@ export function Calculator({ preset }: { preset?: string | undefined }) {
     <section className="section-dark section-space calc-section" aria-labelledby="kalkulacka">
       <Reveal className="page-width">
         <div className="section-heading">
-          <h2 id="kalkulacka">Kolik vás stojí nezvednutý telefon<span className="text-primary">?</span></h2>
+          <h2 id="kalkulacka">Kolik vás stojí nezvednutý telefon a prázdné křeslo<span className="text-primary">?</span></h2>
           <span className="section-marker" aria-hidden="true">↘</span>
         </div>
         <div className="glass-panel calc-panel">
@@ -68,6 +72,14 @@ export function Calculator({ preset }: { preset?: string | undefined }) {
               <input id="calc-share" type="range" min={5} max={80} value={share} onChange={(e) => setShare(+e.target.value)} />
             </div>
             <div className="calc-field">
+              <label htmlFor="calc-noshow">Kolik lidí měsíčně nedorazí nebo zruší na poslední chvíli <output>{noShows}</output></label>
+              <input id="calc-noshow" type="range" min={0} max={40} value={noShows} onChange={(e) => setNoShows(+e.target.value)} />
+            </div>
+            <div className="calc-field">
+              <label htmlFor="calc-rescued">Kolik z nich zachrání záloha a čekací listina <output>{rescued} %</output></label>
+              <input id="calc-rescued" type="range" min={0} max={90} step={5} value={rescued} onChange={(e) => setRescued(+e.target.value)} />
+            </div>
+            <div className="calc-field">
               <label htmlFor="calc-value">Průměrná zakázka</label>
               <span className="calc-value-wrap">
                 <input id="calc-value" type="number" min={1} step={50} value={value} onChange={(e) => { setValue(Math.max(1, Math.round(+e.target.value || 1))); setActive(undefined); }} />
@@ -77,8 +89,9 @@ export function Calculator({ preset }: { preset?: string | undefined }) {
           </div>
           <div className="calc-output">
             <div>
-              <span className="calc-out-label">ztráta měsíčně</span>
+              <span className="calc-out-label">vám měsíčně uniká a Sára může vrátit</span>
               <strong className="calc-loss">{fmtKc(lossA)}</strong>
+              <p className="calc-split mono">hovory {fmtKc(callLoss)} · prázdná křesla {fmtKc(chairLoss)}</p>
             </div>
             <div>
               <span className="calc-out-label">provoz Sáry</span>

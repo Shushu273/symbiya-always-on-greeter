@@ -721,3 +721,5 @@ main, .site-footer { position: relative; z-index: 1; }
   .split-mock, .phones { grid-template-columns: 1fr; }
   .wa-screen { max-width: 300px; }
 }
+
+.calc-split { color: var(--muted-foreground); font-size: 11px; margin-top: 6px; }

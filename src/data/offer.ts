@@ -26,6 +26,9 @@ export const presetForObor = (slug: string) => ZAKAZKA_PRESETS.find((p) => p.slu
 export const monthlyLoss = (missed: number, sharePct: number, value: number) =>
   Math.round(missed * 4.33 * (sharePct / 100) * value);
 
+export const noShowLoss = (noShows: number, rescuedPct: number, value: number) =>
+  Math.round(noShows * (rescuedPct / 100) * value);
+
 export const monthlyProfit = (loss: number) => loss - OFFER.monthly;
 
 export const setupPaybackMonths = (loss: number) => {
