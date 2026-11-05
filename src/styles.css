@@ -797,3 +797,15 @@ main, .site-footer { position: relative; z-index: 1; }
 @media (max-width: 700px) { .auto-pains { grid-template-columns: 1fr; } }
 
 .lux-out { margin: 0; padding: 4px 6px; color: var(--wa-text); font-size: 13px; line-height: 1.5; }
+
+.auto-pains-3, .auto-pains { }
+.auto-payback-wrap { padding: 0 0 72px; }
+.auto-payback { padding: 28px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 14px 40px; align-items: start; }
+.auto-payback h2 { font-size: clamp(26px, 3vw, 36px); letter-spacing: -.03em; margin: 0; grid-row: span 3; }
+.auto-payback ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.auto-payback li { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.auto-payback li strong { color: var(--gold); }
+.auto-payback li.is-total { border-bottom: 0; color: var(--muted-foreground); }
+.auto-payback li.is-total strong { color: var(--foreground); }
+.auto-payback p { margin: 0; color: var(--muted-foreground); font-size: 14px; line-height: 1.7; }
+@media (max-width: 800px) { .auto-payback { grid-template-columns: 1fr; } .auto-payback h2 { grid-row: auto; } }

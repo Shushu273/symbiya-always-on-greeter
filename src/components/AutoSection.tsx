@@ -2,31 +2,30 @@ import { CarFront, CreditCard, FolderKanban, PhoneCall, Repeat2, Ticket, Truck, 
 import { Reveal } from './Effects';
 
 const PAINS = [
-  { icon: PhoneCall, title: '„Zavolám zítra“ znamená „zavolám konkurenci“', text: 'U aut rozhoduje čas. Kdo potřebuje narychlo dodávku nebo stojí v nouzovém pruhu, nezkusí to za hodinu znovu. Volá další číslo.' },
-  { icon: Truck, title: 'Rezervace bez zálohy = auto stojí na place', text: 'Někdo si zamluví devítimístnou dodávku na víkend, vy odmítnete další zájemce a v pátek se nikdo neukáže.' },
-  { icon: Repeat2, title: 'Pořád dokola ty samé otázky', text: '„Máte Octavii v automatu?“ „Dáváte k tomu střešní box?“ „Kolik stojí známka?“ Váš čas je drahý na živý ceník po telefonu.' },
-  { icon: Users, title: 'Kdo vlastně přijede?', text: 'Zákazník napíše e-mail, pak SMS a nakonec zavolá. Při předávce pak dohledáváte, na čem jste se s „tím pánem z WhatsAppu“ domluvili.' },
+  { icon: PhoneCall, title: 'Zahozené hovory = ztracené zakázky', text: 'Zákazník stojí v nouzovém pruhu nebo potřebuje urgentně dodávku na víkend. Když to nevezmete hned, nezkusí to za hodinu. Jde dál a s ním tisíce korun.' },
+  { icon: Truck, title: 'Dodávka stojí na place', text: 'Někdo si zarezervuje auto, vy odmítnete tři další zájemce a on si to v pátek rozmyslí. Bez zálohy přicházíte o peníze i nervy. Auto nevydělává.' },
+  { icon: Repeat2, title: 'Živý ceník místo dispečinku', text: '„Máte volnou Octavii? Je to automat? Má to známku?“ Pořád stejné dotazy na výbavu, podmínky a ceny. Na informační linku je váš čas příliš drahý.' },
 ];
 
 const FIX = [
-  { icon: PhoneCall, title: 'Zvedne hned, nonstop', text: 'V úterý v poledne i v neděli o půlnoci. Zjistí, jaké auto zákazník chce nebo co mu na autě je, a nabídne první volný termín.', state: 'neděle 23:40 · vyřízeno' },
-  { icon: CreditCard, title: 'Zálohy předem', text: 'Jakmile se domluví termín, pošle do SMS nebo e-mailu odkaz na zálohu. Bez ní auto nevyjede a místo na zvedáku se neblokuje.', state: 'záloha 2 000 Kč · zaplaceno' },
-  { icon: CarFront, title: 'Zná váš vozový park a ceník', text: 'Ví, která auta jsou volná, která mají tažné zařízení a kolik stojí výměna oleje. Odpovídá z vašich podkladů, nic si nedomýšlí.', state: 'transit l2h2 · volný pá–ne' },
-  { icon: FolderKanban, title: 'Všechno v jedné kartě', text: 'Hovor, WhatsApp i e-mail spadnou k jednomu zákazníkovi. Na dílně nebo při předávce vidíte přepis, požadavek a jestli je záloha zaplacená.', state: 'hovor + whatsapp + e-mail → 1 karta' },
+  { icon: PhoneCall, title: 'Zvedá na první dobrou, nonstop', text: 'Když máte plné ruce práce, nebo o půlnoci. Uklidní zákazníka v nouzi, nabídne termín na dílně, předá odtahové službě nebo zarezervuje volný vůz podle kalendáře.', state: 'neděle 23:40 · vyřízeno' },
+  { icon: CreditCard, title: 'Záloha jako podmínka výjezdu', text: 'Blokaci auta nepotvrdí, dokud není zaplacená záloha. Platební odkaz pošle do SMS nebo na WhatsApp. Žádné výmluvy, auto nestojí na dobré slovo.', state: 'záloha 2 000 Kč · zaplaceno' },
+  { icon: CarFront, title: 'Zná váš fleet do šroubku', text: 'Ceník i detaily vozů: jestli má auto tažné, kolik stojí dětská autosedačka navíc nebo kolik dáte za výměnu oleje u konkrétního modelu. Odpovídá jen z vašich podkladů.', state: 'transit l2h2 · tažné · volný pá–ne' },
+  { icon: FolderKanban, title: 'Konec chaosu v historii', text: 'E-mail, SMS, WhatsApp i hovor u jednoho zákazníka. Při předávce vidíte celou domluvu a jestli je záloha zaplacená. Konec dohledávání, co vlastně chtěl ten pán s rozbitým zrcátkem.', state: 'hovor + whatsapp + e-mail → 1 karta' },
 ];
 
 export function AutoSection() {
   return <>
     <section className="section-dark section-space" aria-labelledby="auto-pain-h"><div className="page-width">
-      <Reveal><div className="section-heading"><div><h2 id="auto-pain-h">Kde vám utíkají peníze<span className="text-primary">?</span></h2><p className="ability-sub">Zahozené hovory a propadlé rezervace stojí víc, než se zdá. Každý nezvednutý hovor u aut je ztráta v tisících, u opravy i v desítkách tisíc.</p></div><span className="section-marker" aria-hidden="true">↘</span></div></Reveal>
-      <ul className="ability-grid auto-pains">
+      <Reveal><div className="section-heading"><div><h2 id="auto-pain-h">Kde vám utíkají peníze<span className="text-primary">?</span></h2><p className="ability-sub">Zahozené hovory a propadlé rezervace stojí víc, než se zdá. U aut jde u každého nezvednutého hovoru o tisíce, u opravy i o desítky tisíc.</p></div><span className="section-marker" aria-hidden="true">↘</span></div></Reveal>
+      <ul className="ability-grid">
         {PAINS.map(({ icon: Icon, title, text }) => <li className="ability-card" key={title}><span className="ability-icon" aria-hidden="true"><Icon size={22} strokeWidth={1.5}/></span><h3>{title}</h3><p>{text}</p></li>)}
       </ul>
     </div></section>
 
     <section className="section-dark section-space" aria-labelledby="auto-fix-h"><div className="page-width proof-layout auto-fix">
       <div>
-        <Reveal><h2 id="auto-fix-h" className="auto-fix-h">Přestaňte dělat dispečera. Začněte řídit byznys<span className="text-primary">.</span></h2></Reveal>
+        <Reveal><h2 id="auto-fix-h" className="auto-fix-h">Jak Sára zacelí díry v byznysu<span className="text-primary">.</span></h2></Reveal>
         <ul className="auto-fix-list">
           {FIX.map(({ icon: Icon, title, text, state }) => <li key={title}><span className="ability-icon" aria-hidden="true"><Icon size={20} strokeWidth={1.5}/></span><div><h3>{title}</h3><p>{text}</p><span className="ability-state"><i className="status-dot" aria-hidden="true"/>{state}</span></div></li>)}
         </ul>
@@ -41,6 +40,19 @@ export function AutoSection() {
         </div>
         <figcaption className="mono">zachráněná víkendová dodávka</figcaption>
       </figure>
+    </div></section>
+
+    <section className="section-dark auto-payback-wrap" aria-labelledby="auto-pay-h"><div className="page-width">
+      <div className="glass-panel auto-payback">
+        <h2 id="auto-pay-h">Kdy se Sára zaplatí<span className="text-primary">?</span></h2>
+        <ul>
+          <li><span className="mono">1 zachráněná víkendová dodávka</span><strong className="mono">3 400 Kč</strong></li>
+          <li><span className="mono">1 zakázka v servisu z nočního hovoru</span><strong className="mono">3 500 Kč</strong></li>
+          <li className="is-total"><span className="mono">provoz Sáry měsíčně</span><strong className="mono">4 990 Kč</strong></li>
+        </ul>
+        <p>Stačí dva hovory, které jste nemohli zvednout, protože jste stáli pod zvedákem, a měsíc je zaplacený. Vlastní čísla si spočítejte v kalkulačce níž.</p>
+        <p className="ability-note">Příklad s cenami z ukázky. Skutečné částky závisí na vašem ceníku.</p>
+      </div>
     </div></section>
   </>;
 }
