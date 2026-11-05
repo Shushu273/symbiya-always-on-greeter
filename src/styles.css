@@ -767,3 +767,18 @@ main, .site-footer { position: relative; z-index: 1; }
   .sheet-row { grid-template-columns: 34px minmax(0, 1fr) 76px; }
   .sheet-row span:nth-child(2), .sheet-row span:nth-child(4) { display: none; }
 }
+
+/* Homepage: tři kanály */
+.omni-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.omni-card { display: flex; flex-direction: column; gap: 12px; padding: 24px 22px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel); }
+.omni-card h3 { font-size: 22px; line-height: 1.2; letter-spacing: -.02em; margin: 4px 0 0; }
+.omni-card > p { color: var(--muted-foreground); font-size: 13px; line-height: 1.7; margin: 0; }
+.omni-card .journey-num { gap: 7px; }
+.omni-mock { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 6px; }
+.omni-mock .inbox-bubble { max-width: 100%; font-size: 13px; margin-bottom: 4px; }
+.omni-mock .inbox-bubble.is-sara { display: flex; flex-direction: column; gap: 8px; }
+.omni-mock .inbox-status { align-self: flex-start; }
+.omni-meta { display: flex; align-items: center; gap: 8px; color: var(--muted-foreground); font-size: 10px; margin: 0 0 6px; }
+.omni-wa { background: var(--wa-bg); border-radius: 12px; padding: 14px 12px; border-top: 0; margin-top: auto; }
+.omni-wa .wa-out { max-width: 75%; }
+@media (max-width: 960px) { .omni-grid { grid-template-columns: 1fr; } }

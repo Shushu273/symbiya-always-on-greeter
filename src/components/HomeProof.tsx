@@ -1,4 +1,4 @@
-import { Ban, BookOpenCheck, FileImage, Headphones, ShieldCheck, UserRoundCheck } from 'lucide-react';
+import { Ban, BookOpenCheck, CreditCard, FileImage, FileText, Headphones, MessageCircle, Phone, ReceiptText, ShieldCheck, UserRoundCheck } from 'lucide-react';
 import { Reveal } from './Effects';
 
 const ROWS = [
@@ -40,6 +40,48 @@ export function ReceiptProof() {
   </div></section>;
 }
 
+
+export function OmniBlocks() {
+  return <section id="system" className="section-dark section-space omni-section" aria-labelledby="omni-h"><div className="page-width">
+    <Reveal><div className="section-heading"><div><h2 id="omni-h">Tohle není jen telefon<span className="text-primary">.</span></h2><p className="ability-sub">Jedna asistentka na tři místa, kde vám dnes utíkají peníze a čas: telefon, zprávy a papíry.</p></div><span className="section-marker" aria-hidden="true">↘</span></div></Reveal>
+    <ul className="omni-grid">
+      <li className="omni-card">
+        <span className="journey-num mono"><Phone size={13} aria-hidden="true"/>telefon · záchrana zakázek</span>
+        <h3>Zvedne hned. I v noci.</h3>
+        <p>Kdo se nedovolá poprvé, už to nezkusí. Sára zvedá, domlouvá termíny a zapisuje do kalendáře. Vy ráno vidíte hotový rozvrh.</p>
+        <div className="omni-mock">
+          <p className="mono omni-meta"><span className="status-dot"/>hovor · 22:47</p>
+          <div className="inbox-bubble is-client">Dobrý den, potřeboval bych na zítra opravit kapající baterii.</div>
+          <div className="inbox-bubble is-sara"><span className="mono">Sára</span>Zítra mezi 8 a 10 může přijet technik. Zapíšu vás a potvrzení pošlu SMS.</div>
+          <span className="inbox-status is-done">zapsáno do kalendáře · sms odeslána</span>
+        </div>
+      </li>
+      <li className="omni-card">
+        <span className="journey-num mono"><MessageCircle size={13} aria-hidden="true"/>sítě a whatsapp · okamžitá odpověď</span>
+        <h3>Ze zpráv rovnou do kalendáře.</h3>
+        <p>Kdo nedostane odpověď včas, jde jinam. Sára na Instagramu a WhatsAppu odpoví hned, pošle ceník, zjistí, co zákazník chce, a vybere zálohu.</p>
+        <div className="omni-mock">
+          <p className="mono omni-meta"><span className="inbox-chip ch-ig"><i aria-hidden="true"/>Instagram</span> 23:05</p>
+          <div className="inbox-bubble is-client">Kolik stojí prodloužení řas a máte volno tento týden?</div>
+          <div className="inbox-bubble is-sara"><span className="mono">Sára</span>Posílám ceník. Volno mám ve čtvrtek ve 14:00, rezervace je závazná po záloze 300 Kč.
+            <span className="dm-file"><FileText size={14} aria-hidden="true"/>cenik.pdf</span>
+            <span className="dm-pay"><CreditCard size={14} aria-hidden="true"/>Zaplatit zálohu 300 Kč</span>
+          </div>
+        </div>
+      </li>
+      <li className="omni-card">
+        <span className="journey-num mono"><ReceiptText size={13} aria-hidden="true"/>operativa · účetnictví bez papírů</span>
+        <h3>Vyfotit a zapomenout.</h3>
+        <p>Konec večerů nad krabicí dokladů. Fakturu nebo účtenku vyfotíte na WhatsApp, Sára z ní vytáhne data a zapíše ji do tabulky pro účetní.</p>
+        <div className="omni-mock omni-wa">
+          <div className="wa-out"><div className="receipt"><FileImage size={14} aria-hidden="true"/><span className="mono">STAVEBNINY · 5. 11.<br/>sádrokarton 12×<br/>celkem 4 386 Kč</span></div></div>
+          <div className="wa-msg"><p>Uloženo jako náklad na materiál, zapsáno na řádek 214.</p><span className="wa-time mono">16:42</span></div>
+        </div>
+      </li>
+    </ul>
+  </div></section>;
+}
+
 const RULES = [
   { icon: BookOpenCheck, title: 'Jen z vašich podkladů', text: 'Odpovídá z ceníku, otevírací doby a pravidel, které jí dáte. Co v nich není, si nedomýšlí.' },
   { icon: Ban, title: 'Žádné sliby mimo pravidla', text: 'Slevy, výjimky, reklamace a ceny mimo ceník nesjednává. Předá je vám se shrnutím.' },
@@ -49,17 +91,17 @@ const RULES = [
 
 export function SafetyLimits() {
   return <section className="section-dark section-space safety-section" aria-labelledby="hranice-h"><div className="page-width">
-    <Reveal><div className="section-heading"><div><h2 id="hranice-h">Bezpečnost a hranice<span className="text-primary">.</span></h2><p className="ability-sub">Největší strach z AI je, že si něco vymyslí. Sára je nastavená tak, aby se držela jen toho, co jí dáte, a všechno ostatní poslala vám.</p></div><span className="section-marker" aria-hidden="true"><ShieldCheck size={22}/></span></div></Reveal>
+    <Reveal><div className="section-heading"><div><h2 id="hranice-h">Sára zná své hranice<span className="text-primary">.</span></h2><p className="ability-sub">Není to volnomyšlenkářský chatbot. Odpovídá jen z vašich dat (ceník, pravidla, otevírací doba), neslibuje slevy a nestanovuje diagnózy. Co neví, předá vám.</p></div><span className="section-marker" aria-hidden="true"><ShieldCheck size={22}/></span></div></Reveal>
     <div className="safety-layout">
       <ul className="safety-rules">
         {RULES.map(({ icon: Icon, title, text }) => <li key={title}><span className="ability-icon" aria-hidden="true"><Icon size={20} strokeWidth={1.5}/></span><div><h3>{title}</h3><p>{text}</p></div></li>)}
       </ul>
       <div className="glass-panel safety-call">
-        <p className="mono safety-meta"><span className="status-dot"/>hovor · ordinace · 09:41</p>
-        <div className="inbox-bubble is-client">Bolí mě po zákroku koleno. Mám si vzít něco na otok, nebo to nechat být?</div>
-        <div className="inbox-bubble is-sara"><span className="mono">Sára</span>Tohle je odborný zdravotní dotaz a ten po telefonu neposoudím. Pan doktor vám ale ještě dnes odpoledne zavolá. Mám mu to předat? Kdyby se stav rychle zhoršoval, volejte prosím 155.</div>
-        <div className="inbox-bubble is-client">Ano, předejte to prosím.</div>
-        <p className="inbox-handoff">Předáno lékaři: dotaz po zákroku, prosí o zavolání odpoledne. Přepis hovoru je v přehledu.</p>
+        <p className="mono safety-meta"><span className="status-dot"/>hovor · zubní ordinace · 09:41</p>
+        <div className="inbox-bubble is-client">Bolí mě už týden zub, co si na to mám vzít?</div>
+        <div className="inbox-bubble is-sara"><span className="mono">Sára</span>Omlouvám se, ale jako recepční nemohu radit s léčbou. Můžu vás ale hned objednat na vyšetření k panu doktorovi. Nejbližší volný termín je zítra v 9:00. Chcete ho?</div>
+        <div className="inbox-bubble is-client">Ano, beru.</div>
+        <p className="inbox-handoff">Objednáno na zítra 9:00, potvrzení odesláno SMS. Při silné bolesti s otokem nebo horečkou Sára doporučí pohotovost.</p>
       </div>
     </div>
   </div></section>;

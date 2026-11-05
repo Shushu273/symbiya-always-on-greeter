@@ -117,6 +117,10 @@ export function Calculator({ preset }: { preset?: string | undefined }) {
                 ? <p className="calc-line"><strong className="calc-roi">{fmtKc(profitA)}</strong> měsíčně</p>
                 : <p className="calc-line calc-honest">Při těchto číslech se Sára nevyplatí</p>}
             </div>
+            {timeValue > 0 && <div>
+              <span className="calc-out-label">jen z vašeho ušetřeného času se nasazení vrátí za</span>
+              <p className="calc-line"><strong>{Math.ceil(OFFER.setupIntro / timeValue)}</strong> {mesice(Math.ceil(OFFER.setupIntro / timeValue))}</p>
+            </div>}
             {months !== null && <div>
               <span className="calc-out-label">nasazení ({fmtKc(OFFER.setupIntro)}) se vrátí za</span>
               <p className="calc-line"><strong>{monthsA}</strong> {mesice(monthsA)}</p>

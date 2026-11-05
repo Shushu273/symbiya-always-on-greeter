@@ -15,9 +15,9 @@ import { Calculator } from "@/components/Calculator";
 import { Offer } from "@/components/Offer";
 import { AudioDemo } from "@/components/AudioDemo";
 import { OneInbox } from "@/components/OneInbox";
-import { ReceiptProof, SafetyLimits } from "@/components/HomeProof";
+import { OmniBlocks, SafetyLimits } from "@/components/HomeProof";
 
-const title = "SYMBIYA – AI asistentka na celou operativu firmy";
+const title = "SYMBIYA – Neplatíte si AI. Kupujete si zpět svůj čas.";
 const description = "Sára vyřizuje hovory, zprávy z WhatsAppu a Instagramu, vybírá zálohy, plní kalendář a přepisuje účtenky. Nonstop. Pro salony (barber, tetování, kosmetika), kliniky, řemeslníky, dopravu i gastro.";
 
 export const Route = createFileRoute("/")({
@@ -50,11 +50,11 @@ function Index() {
       <div className="page-width hero-layout sara-layout">
         <div className="hero-copy">
           <p className="system-status sara-identity"><span className="status-dot"/>ai asistentka · telefon · whatsapp · instagram · nonstop</p>
-          <h1>Sára nechodí<br/><span className="gradient-text">domů.</span></h1>
-          <p className="hero-description">Vyřizuje hovory i zprávy z WhatsAppu a Instagramu, vybírá zálohy, plní kalendář a přepisuje účtenky. Jedna AI asistentka na celou operativu firmy, zatímco vy děláte svou práci.</p>
+          <h1>Neplatíte si AI.<br/><span className="gradient-text">Kupujete si zpět svůj čas.</span></h1>
+          <p className="hero-description">Zmeškaný hovor je ušlá zakázka. Ignorovaná zpráva na sítích je klient u konkurence. Sára vyřizuje telefony, WhatsApp, Instagram i účtenky nonstop. Jedna asistentka na celou operativu, zatímco vy řídíte firmu.</p>
           <p className="hero-products mono"><a href="#nabidka">sára</a><span aria-hidden="true"> · </span><a href="#nabidka">sára pro</a></p>
           <a href="#nabidka" className="offer-tag">posledních 10 míst · implementace −50 %<ArrowRight size={11}/></a>
-          <div className="hero-actions"><div className="sara-primary"><Button asChild><a href={`tel:${DEMO_GASTRO.tel}`}><Phone size={18}/>Zavolejte Sáře teď</a></Button><span className="mono sara-demo-label">222 760 297 · zvedne ihned · živé demo, nic nekupujete</span></div><AudioDemo/></div>
+          <div className="hero-actions"><div className="sara-primary"><Button asChild><a href={`tel:${DEMO_GASTRO.tel}`}><Phone size={18}/>Zavolat živé demo</a></Button><span className="mono sara-demo-label">222 760 297 · zvedne ihned · nic nekupujete</span></div><Button asChild variant="secondary"><a href="#obory">Vybrat obor<ArrowRight size={17}/></a></Button><AudioDemo/></div>
         </div><CallFeed/>
       </div>
       <div className="hero-cal-shade" aria-hidden="true"/>
@@ -65,10 +65,10 @@ function Index() {
       </div>
       <div className="hero-baseline hero-trust page-width" aria-hidden="true"><span>napojení: google kalendář · apple kalendář · reservio · raynet</span><span>zvedne ihned · přirozená čeština · gdpr ready</span></div>
     </section>
+    <OmniBlocks/>
     <PainRows/>
     <section className="section-dark section-space ability-section" aria-labelledby="sara-umi"><div className="page-width"><Reveal><div className="section-heading ability-heading"><div><h2 id="sara-umi">Víc než zvedání telefonu<span className="text-primary">.</span></h2><p className="ability-sub">Sára hovor nejen vezme, ale dotáhne do konce – a druhý den vám řekne, co se dělo.</p></div><span className="section-marker" aria-hidden="true">↘</span></div></Reveal><AbilityGrid/><p className="ability-note">Napojení na kalendář a WhatsApp nastavíme při nasazení podle toho, co už používáte.</p></div></section>
     <OneInbox/>
-    <ReceiptProof/>
     <SafetyLimits/>
     <CoreHub/>
     <Calculator/>
