@@ -20,6 +20,7 @@ export const ZAKAZKA_PRESETS: { slug: string; label: string; value: number }[] =
   { slug: 'stavebnictvi', label: 'Stavebnictví', value: 25000 },
   { slug: 'doprava', label: 'Doprava', value: 8000 },
   { slug: 'auto', label: 'Auto', value: 3500 },
+  { slug: 'luxusni-auta', label: 'Luxusní auta', value: 15000 },
 ];
 
 export const presetForObor = (slug: string) => ZAKAZKA_PRESETS.find((p) => p.slug === slug)?.value;

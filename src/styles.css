@@ -795,3 +795,5 @@ main, .site-footer { position: relative; z-index: 1; }
 .auto-paid { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; margin-top: 12px; }
 .auto-paid .mono { color: var(--wa-muted); font-size: 10px; }
 @media (max-width: 700px) { .auto-pains { grid-template-columns: 1fr; } }
+
+.lux-out { margin: 0; padding: 4px 6px; color: var(--wa-text); font-size: 13px; line-height: 1.5; }

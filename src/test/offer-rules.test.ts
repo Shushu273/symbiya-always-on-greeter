@@ -25,6 +25,7 @@ describe('Offer rules', () => {
       stavebnictvi: 25000,
       doprava: 8000,
       auto: 3500,
+      'luxusni-auta': 15000,
     });
   });
   it('computes the model loss as calls x 4.33 x share x value', () => {
