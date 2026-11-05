@@ -39,7 +39,10 @@ export function Calculator({ preset }: { preset?: string | undefined }) {
   const [rescued, setRescued] = useState(50);
   const callLoss = monthlyLoss(missed, share, value);
   const chairLoss = noShowLoss(noShows, rescued, value);
-  const loss = callLoss + chairLoss;
+  const [adminHours, setAdminHours] = useState(4);
+  const [rate, setRate] = useState(500);
+  const timeValue = Math.round(adminHours * 4.33 * rate * 0.6);
+  const loss = callLoss + chairLoss + timeValue;
   const profit = monthlyProfit(loss);
   const months = setupPaybackMonths(loss);
 
@@ -53,7 +56,7 @@ export function Calculator({ preset }: { preset?: string | undefined }) {
     <section className="section-dark section-space calc-section" aria-labelledby="kalkulacka">
       <Reveal className="page-width">
         <div className="section-heading">
-          <h2 id="kalkulacka">Kolik vás stojí nezvednutý telefon a prázdné křeslo<span className="text-primary">?</span></h2>
+          <h2 id="kalkulacka">Kolik vás stojí operativa, kterou může dělat Sára<span className="text-primary">?</span></h2>
           <span className="section-marker" aria-hidden="true">↘</span>
         </div>
         <div className="glass-panel calc-panel">
@@ -80,6 +83,17 @@ export function Calculator({ preset }: { preset?: string | undefined }) {
               <input id="calc-rescued" type="range" min={0} max={90} step={5} value={rescued} onChange={(e) => setRescued(+e.target.value)} />
             </div>
             <div className="calc-field">
+              <label htmlFor="calc-admin">Hodiny týdně na zprávy, e-maily a účtenky <output>{adminHours} h</output></label>
+              <input id="calc-admin" type="range" min={0} max={30} value={adminHours} onChange={(e) => setAdminHours(+e.target.value)} />
+            </div>
+            <div className="calc-field">
+              <label htmlFor="calc-rate">Kolik má hodnotu vaše hodina</label>
+              <span className="calc-value-wrap">
+                <input id="calc-rate" type="number" min={0} step={100} value={rate} onChange={(e) => setRate(Math.max(0, Math.round(+e.target.value || 0)))} />
+                <span className="mono">Kč / h</span>
+              </span>
+            </div>
+            <div className="calc-field">
               <label htmlFor="calc-value">Průměrná zakázka</label>
               <span className="calc-value-wrap">
                 <input id="calc-value" type="number" min={1} step={50} value={value} onChange={(e) => { setValue(Math.max(1, Math.round(+e.target.value || 1))); setActive(undefined); }} />
@@ -91,7 +105,7 @@ export function Calculator({ preset }: { preset?: string | undefined }) {
             <div>
               <span className="calc-out-label">vám měsíčně uniká a Sára může vrátit</span>
               <strong className="calc-loss">{fmtKc(lossA)}</strong>
-              <p className="calc-split mono">hovory {fmtKc(callLoss)} · prázdná křesla {fmtKc(chairLoss)}</p>
+              <p className="calc-split mono">hovory {fmtKc(callLoss)} · prázdná místa {fmtKc(chairLoss)} · váš čas {fmtKc(timeValue)}</p>
             </div>
             <div>
               <span className="calc-out-label">provoz Sáry</span>
@@ -107,7 +121,7 @@ export function Calculator({ preset }: { preset?: string | undefined }) {
               <span className="calc-out-label">nasazení ({fmtKc(OFFER.setupIntro)}) se vrátí za</span>
               <p className="calc-line"><strong>{monthsA}</strong> {mesice(monthsA)}</p>
             </div>}
-            <p className="calc-note">Modelový výpočet z vašich čísel, ne garance. Ceny bez DPH.</p>
+            <p className="calc-note">Modelový výpočet z vašich čísel, ne garance. U času počítáme, že Sára převezme 60 % administrativy. Ceny bez DPH.</p>
             <p className="calc-pro-note">Sára PRO: provoz od {fmt.format(OFFER.proMonthly)} Kč / měsíc</p>
             <Button asChild><a href={mailNasazeni}>Chci to zkusit na své firmě<ArrowUpRight size={17} /></a></Button>
           </div>
