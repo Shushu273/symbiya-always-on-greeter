@@ -19,8 +19,7 @@ describe('Offer rules', () => {
   });
   it('keeps the industry presets from the brief', () => {
     expect(Object.fromEntries(ZAKAZKA_PRESETS.map((p) => [p.slug, p.value]))).toEqual({
-      barbershopy: 700,
-      'kosmeticke-salony': 1200,
+      salony: 900,
       kliniky: 1500,
       gastro: 900,
       stavebnictvi: 25000,
