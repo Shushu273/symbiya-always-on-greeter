@@ -16,7 +16,7 @@ import { Offer } from "@/components/Offer";
 import { AudioDemo } from "@/components/AudioDemo";
 
 const title = "SYMBIYA – AI recepční nonstop pro malé podniky";
-const description = "AI recepční, která vezme každý hovor a odpoví na každou zprávu. Ve dne, v noci, o víkendu. Pro barbershopy, kliniky, salony, řemeslníky, dopravu i gastro.";
+const description = "AI recepční, která vezme každý hovor a odpoví na každou zprávu. Ve dne, v noci, o víkendu. Pro salony (barber, tetování, kosmetika), kliniky, řemeslníky, dopravu i gastro.";
 
 export const Route = createFileRoute("/")({
   head: () => ({

@@ -14,8 +14,7 @@ export const mailNasazeni = `mailto:${MAIL}?subject=${encodeURIComponent('Nasaze
 export const mailPro = `mailto:${MAIL}?subject=${encodeURIComponent('Sára PRO')}`;
 
 export const ZAKAZKA_PRESETS: { slug: string; label: string; value: number }[] = [
-  { slug: 'barbershopy', label: 'Barbershop', value: 700 },
-  { slug: 'kosmeticke-salony', label: 'Kosmetika', value: 1200 },
+  { slug: 'salony', label: 'Salon', value: 900 },
   { slug: 'kliniky', label: 'Klinika', value: 1500 },
   { slug: 'gastro', label: 'Gastro', value: 900 },
   { slug: 'stavebnictvi', label: 'Stavebnictví', value: 25000 },
