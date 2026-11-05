@@ -3,6 +3,7 @@ import { Header, Footer } from "@/components/Layout";
 import { Faq, Zaver } from "@/components/Shared";
 import { Calculator } from "@/components/Calculator";
 import { OneInbox } from "@/components/OneInbox";
+import { SalonJourney } from "@/components/SalonJourney";
 import { Offer } from "@/components/Offer";
 import { ArrowUpRight, Phone, ArrowRight } from "lucide-react";
 import { Photo } from "@/components/Photo";
@@ -41,6 +42,7 @@ function OborPage() {
         {o.demo ? <><div className="demo-console glass-panel"><span className="system-status"><span className="status-dot"/>linka aktivní</span><a href={`tel:${o.demo.tel}`} className="demo-number">{o.demo.cislo}</a><div className="hero-actions"><Button asChild><a href={`tel:${o.demo.tel}`}><Phone size={17}/>Zavolat demo</a></Button><Button asChild variant="secondary"><a href={mailUkazka(o.nazev)}>Domluvit ukázku<ArrowUpRight size={17}/></a></Button></div></div><p className="demo-disclaimer">Ozve se AI recepční smyšleného podniku {o.demo.firma}.</p></> : <div className="hero-actions"><Button asChild><a href={mailUkazka(o.nazev)}>Domluvit ukázku pro váš obor<ArrowUpRight size={17}/></a></Button></div>}
       </div>
     </div></section>
+    {o.slug === 'salony' && <SalonJourney/>}
     <section className="section-dark section-space" aria-labelledby="hovory"><Reveal className="page-width"><div className="section-heading"><h2 id="hovory">Typické hovory<span className="text-primary">.</span></h2><span className="section-marker" aria-hidden="true">↘</span></div><ul className="typical-calls">{o.hovory.map(h => <li key={h.dotaz}><p>{h.dotaz}</p><ArrowRight size={18} aria-hidden="true"/><p>{h.akce}</p></li>)}</ul></Reveal></section>
     <section className="section-dark section-space" aria-labelledby="prepis"><div className="page-width transcript-layout"><Reveal><h2 id="prepis">Jak to zní<span className="text-primary">.</span></h2><div className="transcript-wave" aria-hidden="true">{Array.from({length: 25}, (_, i) => <i key={i}/>)}</div></Reveal><div className="glass-panel transcript-panel"><LiveChat key={o.slug} lines={o.prepis}/></div></div></section>
     <section className="section-dark section-space" aria-labelledby="potrebuje"><Reveal className="page-width requirements-layout"><h2 id="potrebuje">Co od vás potřebuje<span className="text-primary">.</span></h2><ul>{o.potrebuje.map(p => <li key={p}><span className="requirement-mark" aria-hidden="true">+</span>{p}</li>)}</ul></Reveal></section>
